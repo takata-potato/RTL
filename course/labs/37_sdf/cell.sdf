@@ -1,0 +1,7 @@
+(DELAYFILE
+  (SDFVERSION "3.0") (DESIGN "annotated_cell")
+  (DATE "2026-09-13") (VENDOR "learning fixture") (PROGRAM "manual") (VERSION "1")
+  (DIVIDER /) (TIMESCALE 1ns)
+  (CELL (CELLTYPE "annotated_cell") (INSTANCE)
+    (DELAY (ABSOLUTE (IOPATH a y (4:4:4) (4:4:4))))
+)

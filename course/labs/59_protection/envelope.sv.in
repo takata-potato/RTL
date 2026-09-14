@@ -1,0 +1,11 @@
+// 暗号化ツールへの入力例。@...@は自分のツールの値に置換する。
+// このテンプレート自体はシミュレータに渡さない。
+`pragma protect key_keyowner="@VENDOR@"
+`pragma protect key_keyname="@KEY_NAME@"
+`pragma protect key_method="rsa"
+`pragma protect data_method="@SUPPORTED_DATA_METHOD@"
+`pragma protect begin
+module secret_cell(input wire [7:0] a, output wire [7:0] y);
+  assign y=a^8'ha5;
+endmodule
+`pragma protect end

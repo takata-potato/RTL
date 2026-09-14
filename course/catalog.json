@@ -1,0 +1,2643 @@
+[
+  {
+    "id": "01_lexical",
+    "title": "文字・数値・識別子を読む",
+    "refs": [
+      "5",
+      "22.13"
+    ],
+    "features": [
+      "識別子",
+      "エスケープ識別子",
+      "数値リテラル",
+      "時間リテラル",
+      "文字列",
+      "属性",
+      "__FILE__",
+      "__LINE__"
+    ],
+    "aim": "同じ値の4通りの書き方と、空白で終わるエスケープ識別子。",
+    "expect": "2進/8進/10進/16進が42。1stepはこのTBでは1ps。",
+    "change": "8'h2a を 8'h2b に変えると最初の照合が失敗する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "Icarus 11は#1stepを解釈できないため、この実験の実行対象に含めない。29_clockingでも#1stepを扱う。",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "02_directives",
+    "title": "コンパイル前にコードが変わる",
+    "refs": [
+      "22",
+      "3.14"
+    ],
+    "features": [
+      "include",
+      "include guard",
+      "define",
+      "undef",
+      "ifdef",
+      "ifndef",
+      "elsif",
+      "else",
+      "endif",
+      "default_nettype",
+      "timescale",
+      "begin_keywords"
+    ],
+    "aim": "マクロはコンパイル時、plusargsはシミュレーション時に選ぶ。",
+    "expect": "既定WIDTH=8。+define+LAB_WIDTH=12 では12。+LAB_WIDTH=12では8。",
+    "change": "make learn LAB=02_directives ARGS=\"+define+LAB_WIDTH=12\" と ARGS=\"+LAB_WIDTH=12\" を比べる。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "03_types",
+    "title": "2値・4値・整数・実数・時間",
+    "refs": [
+      "6.1",
+      "6.2",
+      "6.3",
+      "6.4",
+      "6.5",
+      "6.8",
+      "6.9",
+      "6.11",
+      "6.12",
+      "6.13",
+      "6.20",
+      "6.22",
+      "6.23"
+    ],
+    "features": [
+      "bit",
+      "logic",
+      "reg",
+      "byte",
+      "shortint",
+      "int",
+      "longint",
+      "integer",
+      "time",
+      "real",
+      "shortreal",
+      "realtime",
+      "const",
+      "type"
+    ],
+    "aim": "宣言時の値、ビット幅、2値型への代入によるX/Z消失。",
+    "expect": "logicはX、bitは0。byte/shortint/int/longintは8/16/32/64bit。",
+    "change": "bit b4をlogicにするとXを保存する。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "04_enum_cast",
+    "title": "enumと型キャスト",
+    "refs": [
+      "6.18",
+      "6.19",
+      "6.24",
+      "6.25"
+    ],
+    "features": [
+      "typedef",
+      "enum",
+      "first",
+      "last",
+      "next",
+      "prev",
+      "num",
+      "name",
+      "静的キャスト",
+      "$cast",
+      "$typename"
+    ],
+    "aim": "enumは名前の付いた型。$castは値が列挙子に含まれるか検査する。",
+    "expect": "IDLE→BUSY→DONE。3のdynamic castは失敗し、元の値を保存。",
+    "change": "$cast(state, 3) を $cast(state, 1) に変えて成功側を観察する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "05_struct_union",
+    "title": "構造体・共用体・代入パターン",
+    "refs": [
+      "5.10",
+      "6.4",
+      "7.2",
+      "7.3",
+      "10.9"
+    ],
+    "features": [
+      "struct packed",
+      "union packed",
+      "unpacked struct",
+      "assignment pattern",
+      "default pattern"
+    ],
+    "aim": "structは並べて格納、unionは同じビットを別名で見る。",
+    "expect": "headerの4+4bitは0xa3、union.word=0xa3でも同じフィールドになる。",
+    "change": "structのメンバー順を逆にしてビット配置の変化を確かめる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "06_arrays",
+    "title": "配列の向きと寸法",
+    "refs": [
+      "5.11",
+      "7.4",
+      "7.6",
+      "7.7",
+      "7.11",
+      "20.7"
+    ],
+    "features": [
+      "packed",
+      "unpacked",
+      "多次元配列",
+      "foreach",
+      "$left",
+      "$right",
+      "$low",
+      "$high",
+      "$size",
+      "$dimensions",
+      "$unpacked_dimensions"
+    ],
+    "aim": "変数名の左はpacked、右はunpacked。昇順・降順でleft/rightが変わる。",
+    "expect": "packed 2×8bitは16bit、unpackedの添字は2..4。",
+    "change": "unpackedの[2:4]を[4:2]にし、left/rightとlow/highを比較する。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "07_collections",
+    "title": "動的配列・連想配列・キュー",
+    "refs": [
+      "7.5",
+      "7.8",
+      "7.9",
+      "7.10",
+      "7.12"
+    ],
+    "features": [
+      "new[]",
+      "delete",
+      "exists",
+      "first",
+      "next",
+      "num",
+      "push_back",
+      "push_front",
+      "pop_front",
+      "sort",
+      "reverse",
+      "find",
+      "unique",
+      "sum",
+      "with"
+    ],
+    "aim": "伸縮する配列、キー検索、FIFO、配列メソッドを使い分ける。",
+    "expect": "動的配列を3→5へ拡張して先頭を保持、連想配列は2件、キュー合計12。",
+    "change": "new[5](a)の(a)を外すと既存値がコピーされない。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "08_strings",
+    "title": "文字列の操作と数値変換",
+    "refs": [
+      "6.16",
+      "11.10",
+      "21.3"
+    ],
+    "features": [
+      "string",
+      "len",
+      "getc",
+      "putc",
+      "substr",
+      "toupper",
+      "tolower",
+      "compare",
+      "icompare",
+      "atoi",
+      "atohex",
+      "itoa",
+      "hextoa",
+      "$sformatf",
+      "$sscanf"
+    ],
+    "aim": "文字列を組み立て、切り出し、数値を取り出す。",
+    "expect": "sv→SV、0x2a→42、addr=42のscan成功数は1。",
+    "change": "scan対象をaddr=oopsに変えると成功数が0になる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "09_expressions",
+    "title": "幅・符号・演算子・ストリーミング",
+    "refs": [
+      "11",
+      "6.24"
+    ],
+    "features": [
+      "算術",
+      "比較",
+      "論理",
+      "ビット演算",
+      "リダクション",
+      "連結",
+      "繰返し連結",
+      "streaming",
+      "inside",
+      ">>",
+      ">>>",
+      "indexed part-select",
+      "let"
+    ],
+    "aim": "同じビット列でも符号型と切り出しによって右シフトが変わる。",
+    "expect": "-4>>>1は-2。部分選択後の>>>は0x7e。streamingで0x1234のバイトが0x3412。",
+    "change": "8bitの切り出しに$signedを付けて符号付きへ戻す。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "10_assignments",
+    "title": "代入・保持・force/release",
+    "refs": [
+      "10",
+      "9.2"
+    ],
+    "features": [
+      "assign",
+      "always_comb",
+      "always_ff",
+      "always_latch",
+      "blocking",
+      "nonblocking",
+      "force",
+      "release",
+      "compound assignment"
+    ],
+    "aim": "組合せ、FF、ラッチそれぞれで値がいつ更新されるか見る。",
+    "expect": "FFはposedge後、ラッチはgate=1中に追従、forceしたwireはreleaseで元へ戻る。",
+    "change": "always_ffの<=を=へ変え、14_schedulingと比較する。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "11_control_flow",
+    "title": "分岐・繰返し・脱出",
+    "refs": [
+      "12",
+      "11.4"
+    ],
+    "features": [
+      "if",
+      "case",
+      "casez",
+      "casex",
+      "unique",
+      "unique0",
+      "priority",
+      "inside",
+      "for",
+      "foreach",
+      "repeat",
+      "while",
+      "do while",
+      "break",
+      "continue",
+      "return",
+      "disable"
+    ],
+    "aim": "ループの条件とbreak/continue、X/Zを含むcaseの違い。",
+    "expect": "偶数0+2+4+6=12。casezでZがワイルドカードになる。",
+    "change": "casezをcaseに変えるとZ入力はdefaultへ行く。casexではXも無視される点を比べる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "12_subroutines",
+    "title": "task/functionと引数の受渡し",
+    "refs": [
+      "13",
+      "6.21"
+    ],
+    "features": [
+      "task automatic",
+      "function automatic",
+      "input",
+      "output",
+      "inout",
+      "ref",
+      "const ref",
+      "default argument",
+      "named argument",
+      "return",
+      "void cast"
+    ],
+    "aim": "functionは時間を進めず、taskは待てる。refは呼出し元を直接参照する。",
+    "expect": "factorial(5)=120。refのswapで3と9を交換。taskで2ns経過。",
+    "change": "swapのrefをinputへ変えると呼出し元が変わらなくなる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "13_lifetime",
+    "title": "スコープとstatic/automatic",
+    "refs": [
+      "3.13",
+      "6.21",
+      "8.9",
+      "23.9",
+      "26.3"
+    ],
+    "features": [
+      "static lifetime",
+      "automatic lifetime",
+      "package scope",
+      "block scope",
+      "::",
+      "$unit"
+    ],
+    "aim": "staticローカルは呼出し間で残り、automaticローカルは毎回初期化される。",
+    "expect": "staticは1,2。automaticは1,1。パッケージとブロックの同名変数は別物。",
+    "change": "static関数をautomaticへ変えてカウンターが保存されなくなるのを確かめる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "14_scheduling",
+    "title": "イベント領域とNBAを目で見る",
+    "refs": [
+      "4",
+      "9.4",
+      "10.4",
+      "21.2"
+    ],
+    "features": [
+      "Active",
+      "Inactive",
+      "NBA",
+      "Postponed",
+      "$display",
+      "$strobe",
+      "#0",
+      "intra-assignment delay",
+      "nonblocking assignment"
+    ],
+    "aim": "#0はNBAの完了待ちにならない。値を表示する領域で見える値が変わる。",
+    "expect": "ACTIVE q=0、INACTIVE q=0、POSTPONED q=1。同じ時刻でも順序がある。",
+    "change": "q<=1をq=1に変えるとActiveから1が見える。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "15_processes",
+    "title": "fork・join・プロセス制御",
+    "refs": [
+      "9.3",
+      "9.4",
+      "9.5",
+      "9.6",
+      "9.7"
+    ],
+    "features": [
+      "fork join",
+      "join_any",
+      "join_none",
+      "wait fork",
+      "disable fork",
+      "process::self",
+      "status",
+      "kill",
+      "await",
+      "wait"
+    ],
+    "aim": "並列処理の待ち方と、タイムアウト時に子プロセスを止める方法。",
+    "expect": "joinで2件完了、join_any後disable forkで遅い枝を停止、join_none後wait forkで待つ。",
+    "change": "disable forkを外すと遅い枝も完了する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "16_communication",
+    "title": "event・mailbox・semaphore",
+    "refs": [
+      "6.17",
+      "15"
+    ],
+    "features": [
+      "event",
+      "->",
+      "->>",
+      "triggered",
+      "wait_order",
+      "mailbox#()",
+      "put",
+      "get",
+      "try_get",
+      "peek",
+      "num",
+      "semaphore",
+      "get",
+      "put"
+    ],
+    "aim": "キューで値を渡し、セマフォで共有資源を保護し、イベントで通知する。",
+    "expect": "mailboxで42を受信。並列に更新した共有値が2。NBAイベントを取りこぼさない。",
+    "change": "wait(done.triggered)と@doneで、通知前後の開始順の影響を調べる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "17_classes",
+    "title": "class・ハンドル・コピー",
+    "refs": [
+      "8.1",
+      "8.2",
+      "8.3",
+      "8.4",
+      "8.5",
+      "8.6",
+      "8.7",
+      "8.8",
+      "8.9",
+      "8.10",
+      "8.11",
+      "8.12",
+      "8.19",
+      "8.29"
+    ],
+    "features": [
+      "class",
+      "new",
+      "this",
+      "static property",
+      "static method",
+      "const",
+      "null",
+      "shallow copy"
+    ],
+    "aim": "ハンドル代入は同じオブジェクトを指し、new 元ハンドルは浅いコピー。",
+    "expect": "alias経由の変更は元にも反映、newによるコピーのintは独立。",
+    "change": "childもコピーしたいときに、浅いコピーと自作deep copyの差を考える。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "18_inheritance",
+    "title": "継承・多態・アクセス制御",
+    "refs": [
+      "8.13",
+      "8.14",
+      "8.15",
+      "8.16",
+      "8.17",
+      "8.18",
+      "8.20",
+      "8.21",
+      "8.22",
+      "8.23",
+      "8.24"
+    ],
+    "features": [
+      "extends",
+      "super",
+      "virtual",
+      "pure virtual",
+      "virtual class",
+      "protected",
+      "local",
+      "extern",
+      "$cast"
+    ],
+    "aim": "基底型ハンドルからvirtualメソッドを呼ぶと実体の実装が選ばれる。",
+    "expect": "ShapeハンドルでSquare.area()=16。downcast成功、別の派生型へは失敗。",
+    "change": "基底クラスのvirtualを外せる非abstract例を作り、メソッド選択を比較する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "19_generic_types",
+    "title": "型パラメーターとinterface class",
+    "refs": [
+      "6.25",
+      "8.25",
+      "8.26",
+      "8.27",
+      "8.28",
+      "13.8"
+    ],
+    "features": [
+      "parameter type",
+      "parameterized class",
+      "interface class",
+      "implements",
+      "typedef class",
+      "type operator"
+    ],
+    "aim": "同じ入れ物にint型とbyte型を渡す。interface classはメソッドの契約になる。",
+    "expect": "Holder#(int)は32bit、Holder#(byte)は8bit。Readable経由で7を読む。",
+    "change": "Holder#(byte)へ300を入れて幅による切詰めを観察する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "20_random",
+    "title": "制約付き乱数の基本",
+    "refs": [
+      "18.1",
+      "18.2",
+      "18.3",
+      "18.4",
+      "18.5",
+      "18.6",
+      "18.7",
+      "18.8",
+      "18.9",
+      "18.11",
+      "18.12"
+    ],
+    "features": [
+      "rand",
+      "randc",
+      "constraint",
+      "inside",
+      "dist",
+      "implication",
+      "foreach",
+      "soft",
+      "solve before",
+      "randomize with",
+      "rand_mode",
+      "constraint_mode",
+      "std::randomize"
+    ],
+    "aim": "ランダム値の正しさは、具体的な乱数列ではなく制約を満たすかで検査する。",
+    "expect": "lenは1..4、addrは偶数、payloadの各要素は添字以上。inline constraintでlen=3。",
+    "change": "inlineをlen==9に変えるとrandomize()が0を返す。戻り値を無視しない。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "21_random_sequences",
+    "title": "乱数シード・randcase・randsequence",
+    "refs": [
+      "18.10",
+      "18.13",
+      "18.14",
+      "18.15",
+      "18.16",
+      "18.17",
+      "20.15",
+      "N"
+    ],
+    "features": [
+      "srandom",
+      "pre_randomize",
+      "post_randomize",
+      "randcase",
+      "randsequence",
+      "production",
+      ":=",
+      "rand join",
+      "$urandom_range",
+      "$dist_normal"
+    ],
+    "aim": "値の乱数だけでなく、実行する処理の枝や文法的な並びも選べる。",
+    "expect": "randcaseは10/20、randsequenceはヘッダー1回とbody1回。seed=123を再設定すると同じ値。",
+    "change": "SEED=2で全体の乱数列を変更し、チェックは特定列へ依存しないことを確認する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "22_coverage",
+    "title": "何を試したかをcovergroupで測る",
+    "refs": [
+      "19",
+      "20.14"
+    ],
+    "features": [
+      "covergroup",
+      "coverpoint",
+      "bins",
+      "transition bins",
+      "ignore_bins",
+      "illegal_bins",
+      "cross",
+      "binsof",
+      "intersect",
+      "iff",
+      "sample",
+      "option",
+      "type_option",
+      "get_inst_coverage"
+    ],
+    "aim": "assertは正しさ、covergroupは刺激の到達状況を測る。",
+    "expect": "op×lengthの4組を明示的に投入し、covergroupのcoverageが100%。",
+    "change": "最後のsampleを省いて未到達binを作る。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "23_assertions",
+    "title": "SVAの入口：サンプル値と1サイクル後",
+    "refs": [
+      "16.1",
+      "16.2",
+      "16.3",
+      "16.4",
+      "16.5",
+      "16.6",
+      "16.14",
+      "16.15",
+      "16.16",
+      "20.13"
+    ],
+    "features": [
+      "immediate assert",
+      "assert property",
+      "assume property",
+      "cover property",
+      "disable iff",
+      "$past",
+      "$rose",
+      "$fell",
+      "$stable",
+      "$isunknown",
+      "deferred assert"
+    ],
+    "aim": "posedgeでサンプルするSVAと、NBA後に値を読むTBの違い。",
+    "expect": "reqを立てた次のサンプルでack。+BREAK_PROTOCOLでSVAが明示的に失敗する。",
+    "change": "ARGS=+BREAK_PROTOCOLで応答を壊し、SVA_FAILUREを確認する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "24_sequences",
+    "title": "SVAの列：遅延・繰返し・合成",
+    "refs": [
+      "16.7",
+      "16.8",
+      "16.9",
+      "16.10",
+      "16.11",
+      "16.12"
+    ],
+    "features": [
+      "sequence",
+      "##",
+      "[*]",
+      "[=]",
+      "[->]",
+      "first_match",
+      "and",
+      "or",
+      "intersect",
+      "throughout",
+      "within",
+      "local variable",
+      "sequence argument",
+      "matched",
+      "triggered"
+    ],
+    "aim": "A→B→Cという時間の並びを記述し、複数の演算子で同じトレースを照合する。",
+    "expect": "A,B,Cを1サイクルずつ送ると複合sequenceが成立。",
+    "change": "Bのサイクルを1つ遅らせ、##1を##[1:2]へ変えた場合を比べる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "25_properties",
+    "title": "propertyの合成と有限トレース",
+    "refs": [
+      "16.12",
+      "16.17",
+      "F"
+    ],
+    "features": [
+      "property",
+      "strong",
+      "weak",
+      "not",
+      "and",
+      "or",
+      "iff",
+      "implies",
+      "until",
+      "until_with",
+      "s_until",
+      "s_eventually",
+      "always",
+      "accept_on",
+      "reject_on",
+      "expect"
+    ],
+    "aim": "sequenceを真偽の性質として使い、終了までに成立すべき条件を表す。",
+    "expect": "busyを保った後doneになり、強い有限sequenceとuntilが成立する。",
+    "change": "doneを立てない変更で失敗や終了時未完了がどう報告されるか観察する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "26_checker_bind",
+    "title": "checkerをbindで後付けする",
+    "refs": [
+      "17",
+      "23.11"
+    ],
+    "features": [
+      "checker",
+      "endchecker",
+      "checker instance",
+      "default clocking",
+      "default disable iff",
+      "bind",
+      "$inferred_clock",
+      "$inferred_disable"
+    ],
+    "aim": "RTL本体を編集せず、全インスタンスに検査器を追加する。",
+    "expect": "2つのcounter_cellにcheckerをbind。各々のカウント増加を検査する。",
+    "change": "cellの+1を+2へ変更するとbindされた検査が失敗する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "27_hierarchy",
+    "title": "module・package・generate",
+    "refs": [
+      "3",
+      "23",
+      "26",
+      "27"
+    ],
+    "features": [
+      "module",
+      "parameter",
+      "localparam",
+      "package",
+      "import",
+      "export",
+      "generate for",
+      "generate if",
+      "generate case",
+      "genvar",
+      "named port",
+      ".*",
+      "hierarchical name"
+    ],
+    "aim": "パラメーターで回路を展開し、階層名から各レーンを確認する。",
+    "expect": "4レーンの加算器が0+10,1+10,2+10,3+10を計算。",
+    "change": "LANESを1や8へ変え、generateの展開数と階層が変わるのを見る。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "28_interfaces",
+    "title": "interface・modport・virtual interface",
+    "refs": [
+      "25"
+    ],
+    "features": [
+      "interface",
+      "modport",
+      "interface port",
+      "parameterized interface",
+      "virtual interface",
+      "interface task",
+      "ref interface member"
+    ],
+    "aim": "信号を束ね、modportで向きを定め、classからvirtual interface経由で駆動する。",
+    "expect": "driverが7を送り、DUTが1を足して8を返す。",
+    "change": "DUT modportからinputのdataを書き換えようとすると方向違反になる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "29_clocking",
+    "title": "clocking blockでサンプルと駆動を分ける",
+    "refs": [
+      "14",
+      "16.18",
+      "25.7"
+    ],
+    "features": [
+      "clocking",
+      "default clocking",
+      "input #1step",
+      "output #0",
+      "clocking event",
+      "##",
+      "cycle delay",
+      "synchronous drive"
+    ],
+    "aim": "入力はエッジ直前、出力はエッジ後に扱い、DUTとの競合を避ける。",
+    "expect": "cb.dへ7を送る。DUTが次のposedgeで取り込み、その次のcbサンプルでq=7。",
+    "change": "cb.qを1回早く読むと旧値が見える。入力skewを図と照らして考える。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "30_program",
+    "title": "programのReactive領域",
+    "refs": [
+      "24",
+      "4.4",
+      "4.8"
+    ],
+    "features": [
+      "program automatic",
+      "Reactive",
+      "Re-NBA",
+      "program port",
+      "program termination"
+    ],
+    "aim": "moduleのNBA更新を、programのReactive領域から読む。",
+    "expect": "最初のposedgeでDUTがq<=q+1を実行し、programはq=1を読む。",
+    "change": "programをmoduleに変えると同じposedgeで読む値は更新前になる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "31_nettypes",
+    "title": "netの解決関数と複数ドライバー",
+    "refs": [
+      "6.6",
+      "6.7",
+      "10.3",
+      "23.3"
+    ],
+    "features": [
+      "wire",
+      "tri",
+      "wand",
+      "wor",
+      "uwire",
+      "nettype",
+      "resolution function",
+      "user-defined nettype",
+      "interconnect"
+    ],
+    "aim": "標準netは4値と強さを解決、ユーザー定義nettypeは独自の解決関数を使える。",
+    "expect": "wand(1,0)=0、wor(1,0)=1、realの独自sum netは1.25+2.5=3.75。",
+    "change": "sum解決を最大値へ変更して複数アナログ値の合成を試す。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "32_gates",
+    "title": "ゲートプリミティブと駆動強度",
+    "refs": [
+      "28.1",
+      "28.2",
+      "28.3",
+      "28.4",
+      "28.5",
+      "28.6",
+      "28.10",
+      "28.11",
+      "28.12",
+      "28.15",
+      "28.16"
+    ],
+    "features": [
+      "and",
+      "nand",
+      "nor",
+      "or",
+      "xor",
+      "xnor",
+      "buf",
+      "not",
+      "bufif1",
+      "notif0",
+      "pullup",
+      "pulldown",
+      "strong",
+      "weak",
+      "highz",
+      "gate delay"
+    ],
+    "aim": "論理ゲートを直接インスタンス化し、三状態と強弱の解決を観察する。",
+    "expect": "enable=0でpullupにより1。enable=1でstrong0がweak1に勝つ。",
+    "change": "strong0をweak0へ変えると同強度の競合がXになる。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "33_switches",
+    "title": "MOS・双方向スイッチ・電荷",
+    "refs": [
+      "28.7",
+      "28.8",
+      "28.9",
+      "28.13",
+      "28.14",
+      "6.6"
+    ],
+    "features": [
+      "nmos",
+      "pmos",
+      "cmos",
+      "rnmos",
+      "rpmos",
+      "rcmos",
+      "tran",
+      "rtran",
+      "tranif1",
+      "rtranif0",
+      "trireg",
+      "supply0",
+      "supply1"
+    ],
+    "aim": "スイッチは値を生成するのでなく、端子間を接続・切断する。",
+    "expect": "tranif1を閉じるとsource=1がbusへ伝わり、開くとbus=Z。",
+    "change": "tranif1をrtranif1へ変え、%vで抵抗性スイッチの強度減衰を見る。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "34_udp",
+    "title": "UDPの真理値表と状態表",
+    "refs": [
+      "29"
+    ],
+    "features": [
+      "primitive",
+      "table",
+      "endtable",
+      "combinational UDP",
+      "sequential UDP",
+      "edge descriptor",
+      "?",
+      "-",
+      "initial"
+    ],
+    "aim": "小さな部品を表で定義する。組合せUDPとposedgeで保持するUDPを比較する。",
+    "expect": "ANDの全入力4組とUDP FFの保持を検査する。",
+    "change": "表の0 ? : 0を消すと、該当入力が未定義のXになる。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "35_specify",
+    "title": "specifyとパス遅延",
+    "refs": [
+      "30",
+      "11.11"
+    ],
+    "features": [
+      "specify",
+      "specparam",
+      "parallel path =>",
+      "full path *>",
+      "rise/fall delay",
+      "min:typ:max",
+      "pulsestyle",
+      "showcancelled"
+    ],
+    "aim": "RTLの論理とセルの端子間遅延は別に記述できる。",
+    "expect": "入力変化から出力までtyp値3ns。-mindelays/-maxdelaysで1ns/5ns。",
+    "change": "ARGS=-maxdelaysで5nsへ変更し、ARGS=\"-maxdelays +EXPECTED_DELAY=5\"で照合する。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [
+      "specify"
+    ],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "36_timing_checks",
+    "title": "setup/hold・幅・周期を検査する",
+    "refs": [
+      "31"
+    ],
+    "features": [
+      "$setup",
+      "$hold",
+      "$setuphold",
+      "$recovery",
+      "$removal",
+      "$recrem",
+      "$skew",
+      "$timeskew",
+      "$fullskew",
+      "$period",
+      "$width",
+      "$nochange",
+      "notifier",
+      "&&&"
+    ],
+    "aim": "タイミングチェックはsetup/hold違反を通知する。論理値の正しさとは別の検査。",
+    "expect": "通常入力は違反なし。+VIOLATEでsetup違反を起こし、notifier変化を観察する。",
+    "change": "ARGS=+VIOLATEでdataをクロックの1ns前へ寄せる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "Icarusはタイミングチェックを十分に実行しないため対象外。+VIOLATEでnotifierが動かなければ合格にせず失敗する。Xceliumでtiming checkを無効化しないこと。",
+    "flags": [
+      "timing"
+    ],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "37_sdf",
+    "title": "SDFで遅延を後から差し替える",
+    "refs": [
+      "32"
+    ],
+    "features": [
+      "$sdf_annotate",
+      "DELAYFILE",
+      "CELL",
+      "INSTANCE",
+      "IOPATH",
+      "ABSOLUTE",
+      "TIMESCALE",
+      "SDF mapping"
+    ],
+    "aim": "同じセルにSDFを適用すると、コード内の1nsが4nsへ置き換わる。",
+    "expect": "SDFのIOPATHによりa→yが4nsになる。入力ファイルは実行フォルダーへコピーされる。",
+    "change": "cell.sdfの4:4:4を6:6:6へ変え、期待値も6へ変更する。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [
+      "specify"
+    ],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "38_config",
+    "title": "libraryとconfigで実装を選ぶ",
+    "refs": [
+      "33",
+      "23.10"
+    ],
+    "features": [
+      "library",
+      "libmap",
+      "config",
+      "design",
+      "default liblist",
+      "instance use",
+      "cell use",
+      "endconfig"
+    ],
+    "aim": "同名のcellをfast/slowライブラリーに置き、configでfastを選択する。",
+    "expect": "fast版のresult=11。configのuseをslowへ変えると22。",
+    "change": "select.cfgのfast.cell_modelをslow.cell_modelへ変え、TB期待値を22へ変える。",
+    "portable": false,
+    "kind": "config",
+    "notes": "xrunのライブラリーマップを使う専用実行。展開する絶対パスはcommand.txtに保存。Slangの通常SVチェックとは分けて扱う。",
+    "flags": [],
+    "files": [
+      "tb.sv",
+      "fast.v",
+      "slow.v"
+    ]
+  },
+  {
+    "id": "39_dpi",
+    "title": "DPIでSVとCを往復する",
+    "refs": [
+      "35",
+      "6.14",
+      "H.1",
+      "H.2",
+      "H.3",
+      "H.4",
+      "H.5",
+      "H.6",
+      "H.7",
+      "H.9",
+      "H.10",
+      "I",
+      "J"
+    ],
+    "features": [
+      "DPI-C",
+      "import pure function",
+      "import context function",
+      "export function",
+      "C linkage",
+      "chandle",
+      "svdpi.h"
+    ],
+    "aim": "純粋なC関数、C→SVコールバック、Cが管理するハンドルを使う。",
+    "expect": "C add(4,5)=9、CからSVのdoubleを呼んで18、chandle経由で42を保存。",
+    "change": "Cの加算を減算へ変えるとSVの自動照合が失敗する。",
+    "portable": false,
+    "kind": "dpi",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv",
+      "model.c"
+    ]
+  },
+  {
+    "id": "40_dpi_arrays",
+    "title": "DPIの配列・4値ベクトル・時間を進めるtask",
+    "refs": [
+      "35.5",
+      "35.6",
+      "35.8",
+      "35.9",
+      "H.8",
+      "H.11",
+      "H.12",
+      "I",
+      "J"
+    ],
+    "features": [
+      "svOpenArrayHandle",
+      "svLow",
+      "svHigh",
+      "svGetArrElemPtr1",
+      "svLogicVecVal",
+      "aval",
+      "bval",
+      "import context task",
+      "export task"
+    ],
+    "aim": "C側で配列の添字範囲を調べ、4値を壊さずコピーし、SVのtaskへ制御を戻して待つ。",
+    "expect": "添字3..5の10+20+30=60。X/Zを含む8bitを保持。C経由のtaskで2ns進む。",
+    "change": "配列の添字を[7:5]へ変え、Cが0始まりを仮定していないことを確かめる。",
+    "portable": false,
+    "kind": "dpi",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv",
+      "model.c"
+    ]
+  },
+  {
+    "id": "41_vpi",
+    "title": "VPIで回路を探索しシステム関数を追加",
+    "refs": [
+      "36",
+      "37",
+      "38",
+      "K",
+      "L",
+      "M"
+    ],
+    "features": [
+      "vpi_register_systf",
+      "vpiSysFunc",
+      "vpiIntFunc",
+      "calltf",
+      "compiletf",
+      "vpi_handle",
+      "vpi_iterate",
+      "vpi_scan",
+      "vpi_get_value",
+      "vpi_put_value",
+      "vpi_handle_by_name"
+    ],
+    "aim": "$lab_peek(\"tb.target\")をCで定義し、指定された信号を階層名で読む。",
+    "expect": "SVのtarget=42をVPIで読み、続いて99へ変えて再び読む。",
+    "change": "階層名を存在しないものへ変えると、未取得を値0として扱わず失敗する。",
+    "portable": true,
+    "kind": "vpi",
+    "notes": "VPI用共有ライブラリーをLinuxのccと実行するシミュレータの付属ヘッダーでビルドする。VPI_INCLUDEでヘッダーの場所を指定可能。",
+    "flags": [],
+    "files": [
+      "tb.sv",
+      "plugin.c"
+    ]
+  },
+  {
+    "id": "42_fileio",
+    "title": "ファイル・メモリー・plusargs・波形",
+    "refs": [
+      "21"
+    ],
+    "features": [
+      "$display",
+      "$write",
+      "$monitor",
+      "$fopen",
+      "$fclose",
+      "$fdisplay",
+      "$fscanf",
+      "$fgets",
+      "$sscanf",
+      "$feof",
+      "$readmemh",
+      "$writememh",
+      "$test$plusargs",
+      "$value$plusargs",
+      "$dumpfile",
+      "$dumpvars"
+    ],
+    "aim": "実行時引数→変数→刺激→ファイル出力、を1本の流れで見る。",
+    "expect": "既定COUNT=4。メモリー0x10,20,30,40を読み、results.txtへ出力して読み戻す。",
+    "change": "ARGS=\"+COUNT=2 +WAVES\"で回数とVCDの有無を変更する。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "43_utilities",
+    "title": "便利なシステム関数",
+    "refs": [
+      "20.1",
+      "20.2",
+      "20.3",
+      "20.4",
+      "20.5",
+      "20.6",
+      "20.8",
+      "20.9",
+      "20.10",
+      "20.11",
+      "20.18"
+    ],
+    "features": [
+      "$time",
+      "$realtime",
+      "$timeformat",
+      "$printtimescale",
+      "$bits",
+      "$clog2",
+      "$countones",
+      "$countbits",
+      "$onehot",
+      "$onehot0",
+      "$isunknown",
+      "$signed",
+      "$unsigned",
+      "$realtobits",
+      "$bitstoreal",
+      "$sqrt",
+      "$pow",
+      "$ln",
+      "$fatal",
+      "$warning",
+      "$info"
+    ],
+    "aim": "幅・ビット数・数学関数・表示形式を一度に試す。",
+    "expect": "countones(1011)=3、onehot(0100)=1、sqrt(16)=4、realのビット往復が一致。",
+    "change": "$clog2(1)の0を配列幅へ使うとどうなるか、前のsyntax_demoと比較する。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "44_distributions",
+    "title": "古典的な確率分布関数",
+    "refs": [
+      "20.15",
+      "N"
+    ],
+    "features": [
+      "$random",
+      "$urandom",
+      "$urandom_range",
+      "$dist_uniform",
+      "$dist_normal",
+      "$dist_exponential",
+      "$dist_poisson",
+      "$dist_chi_square",
+      "$dist_t",
+      "$dist_erlang"
+    ],
+    "aim": "seedを更新する古典RNGと、SystemVerilogのスレッドRNGを区別する。",
+    "expect": "uniformは1..6、同じseedの別変数は同じ値。各分布のサンプルを表示する。",
+    "change": "seedを固定して2回実行する。平均の推定にはサンプル数が必要で、1回の値で分布を評価しない。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "45_coverage_api",
+    "title": "コードカバレッジAPI",
+    "refs": [
+      "40",
+      "20.14"
+    ],
+    "features": [
+      "$coverage_control",
+      "$coverage_get",
+      "$coverage_get_max",
+      "$coverage_save",
+      "SV_COV_START",
+      "SV_COV_CHECK",
+      "SV_COV_TOGGLE",
+      "SV_COV_HIER"
+    ],
+    "aim": "covergroupと別に、ツールが計測するtoggleカバレッジを問い合わせる。",
+    "expect": "カバレッジが利用可能であることを先に検査し、取得値と最大値を表示する。",
+    "change": "-coverage allを外すと計測できない場合がある。NOCOVを100%と取り違えない。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "Xceliumの-coverage allを付与する。標準APIの対応は導入版で要確認。API未対応やNOCOVは成功扱いにしない。",
+    "flags": [
+      "coverage"
+    ],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "46_tagged_union",
+    "title": "tagged unionとパターン照合",
+    "refs": [
+      "7.3",
+      "11.9",
+      "12.6"
+    ],
+    "features": [
+      "union tagged",
+      "tagged",
+      "matches",
+      "case matches",
+      "pattern variable",
+      "&&&"
+    ],
+    "aim": "値と種類を一緒に持ち、タグが一致したときだけ中身を読む。",
+    "expect": "Some(42)は42、Noneは-1になる。",
+    "change": "SomeをNoneへ切り替え、不適切なメンバー読取りを避ける仕組みを見る。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "47_alias_ports",
+    "title": "alias・非ANSIポート・interconnect",
+    "refs": [
+      "10.11",
+      "23.2",
+      "23.3",
+      "23.5",
+      "23.6",
+      "23.7",
+      "23.8"
+    ],
+    "features": [
+      "alias",
+      "non-ANSI module",
+      "extern module",
+      "interconnect",
+      "port collapse",
+      "hierarchical reference"
+    ],
+    "aim": "aliasは代入でなく同じnetの別名。古い形式のポート宣言も読む。",
+    "expect": "alias経由で0xa5、非ANSIモジュールで0x5aへ反転。",
+    "change": "aliasを双方向assignで真似すると意味が同じとは限らないことを検討する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "48_sva_operators",
+    "title": "SVA演算子を同じ波形で比べる",
+    "refs": [
+      "16.9",
+      "16.12"
+    ],
+    "features": [
+      "nonconsecutive repetition [=]",
+      "goto repetition [->]",
+      "within",
+      "or",
+      "and",
+      "iff",
+      "implies",
+      "nexttime",
+      "s_nexttime",
+      "eventually",
+      "s_eventually",
+      "accept_on",
+      "reject_on",
+      "sync_accept_on",
+      "sync_reject_on"
+    ],
+    "aim": "a→b→b→cの有限トレースを複数の書き方で検査する。",
+    "expect": "gotoで2回目のbへ到達し、その次にc。accept/reject条件は普段0。",
+    "change": "中断信号abort_signalを1にし、acceptとrejectの結論の差を見る。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "49_multiclock",
+    "title": "複数クロックのアサーション",
+    "refs": [
+      "14.14",
+      "16.9.4",
+      "16.13",
+      "16.16"
+    ],
+    "features": [
+      "multiclocked sequence",
+      "multiclocked property",
+      "clock flow",
+      "global clocking",
+      "$global_clock",
+      "$past_gclk",
+      "$rose_gclk",
+      "$future_gclk"
+    ],
+    "aim": "clk_aの要求から次のclk_bの応答へ、SVAのクロックを切り替える。",
+    "expect": "異なる周期の2クロックを使用。req_aの後のclk_bではready_b=1。",
+    "change": "ready_bを0へ変えて失敗する時刻を比較する。future系は将来のサンプルを要するので別途規格の意味を読む。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "50_coverage_bins",
+    "title": "遷移bin・条件・除外bin",
+    "refs": [
+      "19.4",
+      "19.5",
+      "19.6",
+      "19.7",
+      "19.8",
+      "19.10",
+      "19.11"
+    ],
+    "features": [
+      "transition bins",
+      "bins[]",
+      "wildcard bins",
+      "with",
+      "iff",
+      "ignore_bins",
+      "illegal_bins",
+      "binsof",
+      "intersect",
+      "start",
+      "stop",
+      "set_inst_name"
+    ],
+    "aim": "値だけでなく0→1→2という遷移も測る。除外と違反を区別する。",
+    "expect": "有効サンプル0,1,2で遷移binを1回通り、value binも100%。",
+    "change": "enable=0でsampleしてiffによる除外を試す。3を入力するとillegal_binsの診断になる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "51_constraint_control",
+    "title": "制約の継承・soft・unique・外部定義",
+    "refs": [
+      "18.5",
+      "18.6",
+      "18.7",
+      "18.8",
+      "18.9",
+      "18.10"
+    ],
+    "features": [
+      "extern constraint",
+      "constraint inheritance",
+      "soft",
+      "disable soft",
+      "unique constraint",
+      "if constraint",
+      "implication",
+      "randomize(null)",
+      "local::",
+      "pre_randomize",
+      "post_randomize"
+    ],
+    "aim": "softは既定値、hardは必須条件。状態固定時にも制約の整合性を検査できる。",
+    "expect": "soft limit=2をinline limit=4で上書き。配列4要素は重複なし。",
+    "change": "softを外してhardにするとlimit=4のinline制約と矛盾する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "52_process_handles",
+    "title": "processハンドルで停止・再開・kill",
+    "refs": [
+      "9.7"
+    ],
+    "features": [
+      "process::self",
+      "process::status",
+      "RUNNING",
+      "WAITING",
+      "SUSPENDED",
+      "FINISHED",
+      "KILLED",
+      "suspend",
+      "resume",
+      "await",
+      "kill"
+    ],
+    "aim": "子スレッドをハンドルで操作する。killはそのプロセスの将来の仕事を止める。",
+    "expect": "待ち状態の子をsuspend→resume→killし、10ns後の完了フラグが立たない。",
+    "change": "killの代わりにawaitを使うと、完了を待ってフラグが1になる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "53_preprocessor_edges",
+    "title": "指令の作用範囲・暗黙の接続・行番号",
+    "refs": [
+      "22.3",
+      "22.5",
+      "22.9",
+      "22.10",
+      "22.11",
+      "22.12",
+      "22.14"
+    ],
+    "features": [
+      "resetall",
+      "undefineall",
+      "unconnected_drive",
+      "nounconnected_drive",
+      "celldefine",
+      "endcelldefine",
+      "pragma",
+      "line",
+      "begin_keywords",
+      "end_keywords"
+    ],
+    "aim": "未接続inputの既定駆動と、診断に出る論理ファイル名を操作する。",
+    "expect": "unconnected_drive pull1の範囲で作った未接続inputは1になる。",
+    "change": "pull1をpull0へ変え、期待値も0にする。resetallはマクロのundefineallとは別。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "54_legacy_storage",
+    "title": "昔の記述を読む：defparamとprocedural assign",
+    "refs": [
+      "10.6",
+      "23.10",
+      "C"
+    ],
+    "features": [
+      "defparam",
+      "procedural assign",
+      "deassign",
+      "force variable",
+      "release variable",
+      "deprecated syntax"
+    ],
+    "aim": "既存コードを読むため、parameterの後付け変更と手続き的連続代入を試す。",
+    "expect": "defparamでWIDTH=3。assign中はdを追従、deassign後は最後の値を保持する。",
+    "change": "新規RTLでは#(.WIDTH(3))へ書換え、手続き的assignは通常のalways記述へ置換する。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "55_file_positions",
+    "title": "ファイルの位置・EOF・文字I/O",
+    "refs": [
+      "21.3"
+    ],
+    "features": [
+      "$fputc via $fwrite",
+      "$fgetc",
+      "$ungetc",
+      "$fgets",
+      "$ftell",
+      "$fseek",
+      "$rewind",
+      "$fflush",
+      "$ferror",
+      "$feof",
+      "$fread"
+    ],
+    "aim": "EOFは読み取りに失敗した後で分かる。位置を戻して同じ内容を読む。",
+    "expect": "ABCを出力しAを読んで戻し、seekでC、EOFで-1。",
+    "change": "EOF判定をreadより前だけに置くループと、戻り値を確認するループの差を見る。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "56_stochastic_pla",
+    "title": "キュー解析とPLAシステムタスク",
+    "refs": [
+      "20.16",
+      "20.17"
+    ],
+    "features": [
+      "$q_initialize",
+      "$q_add",
+      "$q_remove",
+      "$q_full",
+      "$q_exam",
+      "$async$and$array",
+      "$async$or$array",
+      "$sync$and$array",
+      "$async$and$plane"
+    ],
+    "aim": "古典的な待ち行列解析タスクと、配列で表す論理面を試す。",
+    "expect": "キューへjob=7,info=42を追加して取り出す。OR arrayは選択行のORを出力。",
+    "change": "2件追加しFIFO/LIFOのqueue_typeを1/2へ切り替える。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "57_vpi_callbacks",
+    "title": "VPI callback・値変更・シミュレーション時刻",
+    "refs": [
+      "36.8",
+      "36.10",
+      "37.18",
+      "37.72",
+      "37.73",
+      "37.74",
+      "37.81",
+      "38"
+    ],
+    "features": [
+      "cbStartOfSimulation",
+      "cbValueChange",
+      "cbReadOnlySynch",
+      "cbAfterDelay",
+      "vpi_register_cb",
+      "vpi_get_time",
+      "vpi_get_str",
+      "vpi_put_value",
+      "vpi_chk_error"
+    ],
+    "aim": "VPIは信号の変化をコールバックで受け取れる。時刻と値をCから表示する。",
+    "expect": "targetを0→1→2に変更し、callbackの回数をシステム関数で取得する。",
+    "change": "cbValueChangeをcbReadOnlySynchへ変える場合に必要な登録時刻・再登録を規格で確認する。",
+    "portable": true,
+    "kind": "vpi",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv",
+      "plugin.c"
+    ]
+  },
+  {
+    "id": "58_assertion_api",
+    "title": "CからSVAの成功を観測する",
+    "refs": [
+      "39",
+      "M"
+    ],
+    "features": [
+      "vpiAssertion",
+      "cbAssertionSysInitialized",
+      "vpi_register_assertion_cb",
+      "cbAssertionSuccess",
+      "vpi_control",
+      "assertion attempt information"
+    ],
+    "aim": "アサーション名のハンドルを取得し、nonvacuous成功のcallbackを登録する。",
+    "expect": "a_readyの成功回数をCで数え、SVの$lab_assertion_count()から確認する。",
+    "change": "readyを0にして失敗callbackへ変更する。API初期化はstart-of-simulationと同じとは限らない。",
+    "portable": false,
+    "kind": "vpi",
+    "notes": "sv_vpi_user.hとAssertion APIの実装が必要。ヘッダーや関数がない場合は未対応として記録し、通常のSVA実験23で動作を別途確認する。",
+    "flags": [],
+    "files": [
+      "tb.sv",
+      "plugin.c"
+    ]
+  },
+  {
+    "id": "59_protection",
+    "title": "保護エンベロープを分解して読む",
+    "refs": [
+      "34",
+      "O",
+      "22.11"
+    ],
+    "features": [
+      "pragma protect",
+      "begin",
+      "end",
+      "begin_protected",
+      "end_protected",
+      "key_keyowner",
+      "key_keyname",
+      "key_method",
+      "key_block",
+      "data_method",
+      "data_block",
+      "encoding"
+    ],
+    "aim": "暗号化前ソース→暗号化ツール→保護済みソース→復号してコンパイル、の境界を見る。",
+    "expect": "まずsource.svを通常実行。自分のXcelium版の暗号化コマンドで保護した後、同じTBで結果を比較する。",
+    "change": "run前にprotect_inspect.pyへ暗号化済みファイルを渡し、envelopeの構造と暗号方式を読む。",
+    "portable": false,
+    "kind": "external",
+    "notes": "暗号化にはツール提供の鍵・対応方式・暗号化コマンドが必要。ダミーの暗号文で復号に成功したことにはしない。平文のreference runと、外部で作ったprotected sourceのrunを同じTBで比較する手順をGUIDE.mdに記載。",
+    "flags": [],
+    "files": [
+      "source.sv",
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "60_bnf",
+    "title": "BNFからコードを組み立てる",
+    "refs": [
+      "1.6",
+      "A"
+    ],
+    "features": [
+      "source_text",
+      "library_text",
+      "::=",
+      "alternative",
+      "optional",
+      "repetition",
+      "terminal",
+      "nonterminal"
+    ],
+    "aim": "付録Aの全生成規則を索引で検索し、実際のコードへ辿る。",
+    "expect": "索引でmodule_declaration→module_ansi_header→parameter_port_listを辿り、27_hierarchyと対応する。",
+    "change": "同じmoduleをANSI形式と非ANSI形式で2通り記述し、ポートの同値性を確認する。",
+    "portable": false,
+    "kind": "reference",
+    "notes": "BNFだけでは型・スコープ・時間の意味は決まらない。索引には付録Aの生成規則に加え、本文の「not in Annex A」のシステムタスク文法も収録。各ページの原文を同じ画面で読める。",
+    "flags": [],
+    "files": []
+  },
+  {
+    "id": "61_keywords",
+    "title": "予約語と名前空間を検索する",
+    "refs": [
+      "5.6",
+      "B",
+      "3.13"
+    ],
+    "features": [
+      "reserved keyword",
+      "escaped identifier",
+      "system task name",
+      "compilation unit",
+      "package namespace"
+    ],
+    "aim": "付録Bの全予約語を一覧化し、コード内の使用箇所とBNFに繋げる。",
+    "expect": "class、checker、randsequence、interconnectなどを検索して、定義と使用例へ移動する。",
+    "change": "予約語cellを普通の識別子に使うと構文エラー。エスケープ識別子にした場合を比較する。",
+    "portable": false,
+    "kind": "reference",
+    "notes": "予約語の「コードあり」はコメントや文字列を除いたトークン検索。コード例がない語は「原文・発展課題」と明記し、使用済みと数えない。",
+    "flags": [],
+    "files": []
+  },
+  {
+    "id": "62_standard_package",
+    "title": "標準パッケージstdを読む",
+    "refs": [
+      "26.7",
+      "G",
+      "15",
+      "9.7",
+      "18.12"
+    ],
+    "features": [
+      "std::",
+      "mailbox",
+      "semaphore",
+      "process",
+      "randomize",
+      "built-in class signatures"
+    ],
+    "aim": "付録Gの宣言と、15/16/20/52の呼出しを1対1で照合する。",
+    "expect": "mailbox#(int)のget(ref T)と、process::statusの返却enumを規格で確認する。",
+    "change": "mailbox#(int)にstringをputして型検査がどこで働くか試す。",
+    "portable": false,
+    "kind": "reference",
+    "notes": "stdはシミュレータが提供する。付録Gをコピーしてpackage stdを再定義しない。宣言を読むための演習。",
+    "flags": [],
+    "files": []
+  },
+  {
+    "id": "63_foreign_headers",
+    "title": "DPI/VPIヘッダーとAPI索引",
+    "refs": [
+      "35",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M"
+    ],
+    "features": [
+      "svdpi.h",
+      "vpi_user.h",
+      "vpi_compatibility.h",
+      "sv_vpi_user.h",
+      "PLI_INT32",
+      "vpiHandle",
+      "svLogic",
+      "svBitVecVal",
+      "svLogicVecVal",
+      "ABI"
+    ],
+    "aim": "PDFのC宣言を、実行先ツールのヘッダーと比べる。",
+    "expect": "索引から全vpi_*/sv*宣言へ移動できる。39/40/41/57/58のCコードが利用例。",
+    "change": "sizeof(svLogicVecVal)、sizeof(PLI_INT32)、配列APIの返却型を実際のCコンパイラで調べる。",
+    "portable": false,
+    "kind": "reference",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "inspect_headers.c"
+    ]
+  },
+  {
+    "id": "64_deprecated_api",
+    "title": "この版で廃止された項目を確認する",
+    "refs": [
+      "1.9",
+      "41",
+      "C",
+      "D",
+      "E"
+    ],
+    "features": [
+      "deprecated",
+      "Data read API",
+      "optional system task",
+      "optional compiler directive",
+      "compatibility"
+    ],
+    "aim": "「目次に章がある」ことと「この版に文法が定義されている」ことは別。",
+    "expect": "41章は廃止の1文だけ。具体的APIは1800-2005参照と書かれている。",
+    "change": "付録Cの推奨代替を54_legacy_storageのコードと比較する。",
+    "portable": false,
+    "kind": "reference",
+    "notes": "添付2017版に存在しない旧41章のAPIを捏造した実験にはしない。付録D/Eはoptionalで、環境依存のため本文の必須機能と区別する。",
+    "flags": [],
+    "files": []
+  },
+  {
+    "id": "65_formal_semantics",
+    "title": "SVAの空列・vacuous・strong/weak",
+    "refs": [
+      "16.12",
+      "F"
+    ],
+    "features": [
+      "empty match",
+      "vacuous success",
+      "finite trace",
+      "infinite trace",
+      "strong",
+      "weak",
+      "sequence rewriting"
+    ],
+    "aim": "同じassertが成功でも、要求が来なかっただけの成功と、応答まで観測した成功を区別する。",
+    "expect": "req=0の区間は応答検査がvacuous。reqが来た区間は23/25/48でcoverを使い成立を確認する。",
+    "change": "23のreqを常に0にしてassertが失敗しなくても有効な試験とは限らないことを確認する。",
+    "portable": false,
+    "kind": "reference",
+    "notes": "",
+    "flags": [],
+    "files": []
+  },
+  {
+    "id": "66_vpi_object_model",
+    "title": "VPIの83種の対象・関係を辿る",
+    "refs": [
+      "37",
+      "38"
+    ],
+    "features": [
+      "one-to-one relation",
+      "one-to-many relation",
+      "vpi_iterate",
+      "vpi_scan",
+      "vpi_handle",
+      "typespec",
+      "scope",
+      "net",
+      "variable",
+      "class",
+      "assertion",
+      "covergroup"
+    ],
+    "aim": "37章の図は回路図でなく、VPIオブジェクト間を辿る地図。",
+    "expect": "37.1〜37.83を索引から読み、41/57のhandle取得を別の対象に拡張する。",
+    "change": "module→netをiterateし、name/size/typeを出力するCコードを追加する。",
+    "portable": false,
+    "kind": "reference",
+    "notes": "",
+    "flags": [],
+    "files": []
+  },
+  {
+    "id": "67_reading_map",
+    "title": "規格の読み方・用語・参照先",
+    "refs": [
+      "1",
+      "2",
+      "3",
+      "P",
+      "Q"
+    ],
+    "features": [
+      "shall",
+      "should",
+      "may",
+      "normative",
+      "informative",
+      "design element",
+      "compilation",
+      "elaboration",
+      "simulation",
+      "glossary"
+    ],
+    "aim": "規格の要求、説明、例、外部参照を分けて読む。",
+    "expect": "コンパイル→elaboration→simulationの3段階をmakeの各入口と対応させる。",
+    "change": "未定義識別子、存在しないmodule、実行時assertの3つを作って失敗する段階を分類する。",
+    "portable": false,
+    "kind": "reference",
+    "notes": "対応する定義はPDF索引の1/2/3章と付録P/Qへ。規格中の使用例はそれ自体が仕様全体ではなく、本文の制約も読む。",
+    "flags": [],
+    "files": []
+  },
+  {
+    "id": "68_bad_implicit",
+    "title": "失敗を学ぶ：暗黙netを禁止する",
+    "refs": [
+      "6.10",
+      "22.8"
+    ],
+    "features": [
+      "default_nettype none",
+      "implicit net",
+      "undeclared identifier",
+      "compile error"
+    ],
+    "aim": "タイプミスを1bit wireとして通してしまう書き方を、コンパイルで止める。",
+    "expect": "TYPO_SIGNALの未宣言診断でコンパイル失敗。ランナーはその診断だけを期待失敗として記録。",
+    "change": "`default_nettype wireへ変えて暗黙netが作られるケースと比較する。",
+    "portable": true,
+    "kind": "compile_fail",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ],
+    "diagnostic": "TYPO_SIGNAL"
+  },
+  {
+    "id": "69_bad_enum",
+    "title": "失敗を学ぶ：enumへ整数を直入れ",
+    "refs": [
+      "6.19",
+      "6.24"
+    ],
+    "features": [
+      "strong enum typing",
+      "explicit cast",
+      "required cast",
+      "compile error"
+    ],
+    "aim": "enumはビット幅が同じだけでは暗黙に代入できない。",
+    "expect": "BAD_ENUM_ASSIGNの代入に型変換の診断が出る。",
+    "change": "STATE_ONEへの名前代入または$castの戻り値検査に書き換える。",
+    "portable": true,
+    "kind": "compile_fail",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ],
+    "diagnostic": "cast|enum|ENUM"
+  },
+  {
+    "id": "70_bad_ref",
+    "title": "失敗を学ぶ：refの実引数",
+    "refs": [
+      "13.5.2"
+    ],
+    "features": [
+      "ref argument",
+      "variable actual",
+      "type equivalence",
+      "compile error"
+    ],
+    "aim": "refは変数そのものを参照するので、計算式は渡せない。",
+    "expect": "BAD_REF_ARGUMENT(1+2)でref実引数が変数でないと診断される。",
+    "change": "int tmpに1+2を代入してからtmpを渡す。",
+    "portable": false,
+    "kind": "compile_fail",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ],
+    "diagnostic": "ref|REF|variable|lvalue"
+  },
+  {
+    "id": "71_expected_assert",
+    "title": "失敗を学ぶ：assertが動いたことを確認",
+    "refs": [
+      "16.3",
+      "20.10"
+    ],
+    "features": [
+      "immediate assert",
+      "fatal",
+      "expected failure",
+      "self checking"
+    ],
+    "aim": "終了コード0だけでなく、実際に照合を行っていることを確かめる。",
+    "expect": "EXPECTED_ASSERT_FAILUREで実行が失敗する。それを期待した実験として記録する。",
+    "change": "observedを8にすると意図した失敗が起きず、ランナー側が失敗を報告する。",
+    "portable": true,
+    "kind": "runtime_fail",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ],
+    "diagnostic": "EXPECTED_ASSERT_FAILURE"
+  },
+  {
+    "id": "72_integrated_fifo",
+    "title": "総合演習：FIFOをRTL/TB/乱数/SVAで検証",
+    "refs": [
+      "4",
+      "7",
+      "8",
+      "14",
+      "15",
+      "16",
+      "18",
+      "19",
+      "21",
+      "23",
+      "25",
+      "26",
+      "27"
+    ],
+    "features": [
+      "synthesizable RTL",
+      "FIFO",
+      "parameter",
+      "always_ff",
+      "always_comb",
+      "class randomization",
+      "queue scoreboard",
+      "SVA",
+      "covergroup",
+      "plusargs",
+      "clocking discipline"
+    ],
+    "aim": "深さ4のFIFOへpush/popを送り、キューを正解モデルとして毎回比較する。",
+    "expect": "empty/full、同時push/pop、ポインター折返しを固定試験で踏んだ後、既定200回のランダム試験。",
+    "change": "ARGS=+CYCLES=1000で長く回す。RTLのread pointer更新を壊すとscoreboardが検出する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv",
+      "fifo.sv"
+    ]
+  },
+  {
+    "id": "73_gate_families",
+    "title": "全ゲート系の真理値を比較する",
+    "refs": [
+      "28.4",
+      "28.5",
+      "28.6",
+      "28.10"
+    ],
+    "features": [
+      "and",
+      "nand",
+      "or",
+      "nor",
+      "xor",
+      "xnor",
+      "buf",
+      "not",
+      "bufif0",
+      "bufif1",
+      "notif0",
+      "notif1",
+      "pullup",
+      "pulldown"
+    ],
+    "aim": "全4入力組について各ゲートの論理式と比較し、三状態の有効極性も確認する。",
+    "expect": "nand/nor/xnor/notがそれぞれ反転結果。bufif0はen=0で通り、en=1でZ。",
+    "change": "bufif0とbufif1を入れ替え、enableの有効極性が逆になるのを確かめる。",
+    "portable": true,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "74_charge_strength",
+    "title": "電荷保持・抵抗性スイッチ・net種類",
+    "refs": [
+      "6.6",
+      "6.9.2",
+      "28.7",
+      "28.8",
+      "28.9",
+      "28.11",
+      "28.12",
+      "28.13",
+      "28.14"
+    ],
+    "features": [
+      "trireg",
+      "small",
+      "medium",
+      "large",
+      "tri0",
+      "tri1",
+      "triand",
+      "trior",
+      "scalared",
+      "vectored",
+      "supply0",
+      "supply1",
+      "pmos",
+      "rnmos",
+      "rpmos",
+      "rcmos",
+      "tran",
+      "rtran",
+      "tranif0",
+      "rtranif0",
+      "rtranif1",
+      "weak0",
+      "highz0",
+      "highz1"
+    ],
+    "aim": "接続が切れたtriregは電荷を保持する。triのZとは異なる。",
+    "expect": "3種類の電荷強度で1を保持。抵抗性MOSとpass switchを通した値と%vを表示する。",
+    "change": "triregをtriへ変えると切断後の値はZ。weakとstrongの組合せで%vを比べる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "75_declaration_forms",
+    "title": "const/ref/type/varの違い",
+    "refs": [
+      "6.18",
+      "6.20",
+      "6.23",
+      "13.5",
+      "23.2",
+      "27"
+    ],
+    "features": [
+      "const",
+      "const ref",
+      "var",
+      "type",
+      "parameter type",
+      "macromodule",
+      "generate",
+      "endgenerate",
+      "genvar",
+      "uwire"
+    ],
+    "aim": "constは変更禁止、refは参照渡し、typeは式の型。parameter typeで入出力の型を決める。",
+    "expect": "型パラメーター8bitのデータが2レーンへ渡り、const ref関数が配列和6を返す。",
+    "change": "const refの引数を書き換えようとしてコンパイル診断を確認する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "76_control_edges",
+    "title": "unique0・priority・casex・event順序・final",
+    "refs": [
+      "9",
+      "12",
+      "15.5"
+    ],
+    "features": [
+      "unique0",
+      "priority",
+      "casex",
+      "forever",
+      "wait_order",
+      "final",
+      "event",
+      "disable"
+    ],
+    "aim": "値の分岐とイベント順序を別々に検査する。finalは終了時の表示に使う。",
+    "expect": "casexはXを無視する。first→secondのイベント順序でwait_orderが成功する。",
+    "change": "イベントの順を逆にしてORDER_FAILURE、casexをcaseにして一致しないことを確認する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "77_property_forms",
+    "title": "assume/restrict・expect・残りのproperty形式",
+    "refs": [
+      "16.12",
+      "16.14",
+      "16.17",
+      "11.12"
+    ],
+    "features": [
+      "assume",
+      "restrict",
+      "expect",
+      "weak",
+      "strong",
+      "nexttime",
+      "eventually",
+      "always",
+      "s_always",
+      "until",
+      "until_with",
+      "s_until_with",
+      "implies",
+      "iff",
+      "untyped"
+    ],
+    "aim": "assert以外の検証文と、終了条件を含むpropertyの形式を試す。",
+    "expect": "goの次サイクルにdone。expectが完了するまで待ち、検査後に終了する。",
+    "change": "仮定assumeは形式検証では入力条件、シミュレーションでは検査となる点を区別する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "restrictは形式検証向けでシミュレーションの動作を拘束しない。`ARGS=+define+EXPLICIT_UNTYPED`でuntypedを明記する形式も試せる。既定は意味が同じ暗黙形式。pyslang 11.0.0は明示untyped形式を解析できなかったため、その分岐はXceliumでの確認が必要。",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "78_interface_broadcast",
+    "title": "interfaceのextern forkjoin task",
+    "refs": [
+      "25.7.4"
+    ],
+    "features": [
+      "extern forkjoin task",
+      "modport export",
+      "hierarchical task definition",
+      "broadcast task"
+    ],
+    "aim": "interfaceの1回のtask呼出しで、接続された2つのmoduleの実装を並列に実行する。",
+    "expect": "ID=0と1の各subscriberが各自のdone bitを立て、呼出しから戻ると11。",
+    "change": "片方のsubscriberを取り除くとdone=01。共有の同一変数への競合書込みを避けて各bitを分ける。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "79_conditional_paths",
+    "title": "条件付きパス・edge・パルス指令",
+    "refs": [
+      "30.4",
+      "30.5",
+      "30.6",
+      "30.7",
+      "31.5"
+    ],
+    "features": [
+      "ifnone",
+      "conditional specify path",
+      "pulsestyle_ondetect",
+      "pulsestyle_onevent",
+      "showcancelled",
+      "noshowcancelled",
+      "edge descriptor"
+    ],
+    "aim": "modeによってパス遅延を選び、条件に合わないときのifnoneを使う。",
+    "expect": "mode=1の出力遅延2ns、mode=0ではifnoneの4ns。短パルスの扱いは拡張課題。",
+    "change": "入力パルスを遅延より短くして、パルス指令によるX発生時刻の違いを波形で確認する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [
+      "specify"
+    ],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "80_coverage_selection",
+    "title": "wildcard binとcrossの選択",
+    "refs": [
+      "19.5",
+      "19.6"
+    ],
+    "features": [
+      "wildcard bins",
+      "binsof",
+      "intersect",
+      "cross selection",
+      "ignore_bins"
+    ],
+    "aim": "bitパターンをまとめるbinと、crossの一部だけを対象にするbinを使う。",
+    "expect": "上位bitごとのwildcard binと、値0/1×mode0/1の4組を踏む。",
+    "change": "binsof値集合のintersectを変え、対象になる組合せを手書きの表で確かめる。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  },
+  {
+    "id": "81_interconnect",
+    "title": "interconnectとinoutの接続専用net",
+    "refs": [
+      "6.6.8",
+      "6.7",
+      "23.3",
+      "25"
+    ],
+    "features": [
+      "interconnect",
+      "inout",
+      "tri",
+      "net port connection",
+      "port type resolution"
+    ],
+    "aim": "interconnectは型を決めず接続だけを記述する。値を読むのは接続先の型付きnet。",
+    "expect": "送り手の0xa5がinoutの接続を通り、受け手のsenseで読める。",
+    "change": "interconnectを直接$displayへ渡すと使用制限に抵触する。接続先のsenseを表示する。",
+    "portable": false,
+    "kind": "sim",
+    "notes": "",
+    "flags": [],
+    "files": [
+      "tb.sv"
+    ]
+  }
+]

@@ -1,0 +1,6 @@
+/build/
+/env.local.sh
+*.tgz
+__pycache__/
+/course/*.local.*
+/rtl-xrun/

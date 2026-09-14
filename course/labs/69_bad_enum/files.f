@@ -1,0 +1,2 @@
++incdir+../../common
+tb.sv

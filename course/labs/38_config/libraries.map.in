@@ -1,0 +1,2 @@
+library fast "@LAB@/fast.v" -incdir "@LAB@";
+library slow "@LAB@/slow.v";

@@ -1,0 +1,1445 @@
+{
+  "recorded_at": "2026-09-14T04:28:29.714686+00:00",
+  "source": "IEEE Std 1800-2017, supplied 1315-page PDF",
+  "static": {
+    "tool": "pyslang 11.0.0",
+    "language": "1800-2017",
+    "results": [
+      {
+        "id": "01_lexical",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "8c11581b6f0623290ed5ab2da9f7ab5c1d67809dfb41f63e0d2957c77a056c0a"
+      },
+      {
+        "id": "02_directives",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "9242bbbcfc77fb30013ce1bebfa3a4108e6b71088577fc42af04fc3eee98676e"
+      },
+      {
+        "id": "03_types",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "a0a27a148f598d10ebb1b5a1a499bca4e9dff2d17069cd1ae25c0a7a847004d0"
+      },
+      {
+        "id": "04_enum_cast",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 1,
+        "source_sha256": "08f818f2a855408bfd7b210ccae5a593319d6e508c8fd793411cf6228d41c3f2"
+      },
+      {
+        "id": "05_struct_union",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 2,
+        "source_sha256": "ddd4a14bf7c881cf038ff5715ce66d54eb66860a7155315ae0e0dfd44abdfa54"
+      },
+      {
+        "id": "06_arrays",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 1,
+        "source_sha256": "c35be1519bc527997663427021c2fa33b28eaaf93e45166027d07a9b33c47cb9"
+      },
+      {
+        "id": "07_collections",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "a4fa0ff5398f7ed1a5b9eb0aa74128ef70da15b2a94601f95773785f5b2d010c"
+      },
+      {
+        "id": "08_strings",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "c5254e627a1d1a734187a65e5fab91d088cb0f3f0031c66a765147b7395e76c7"
+      },
+      {
+        "id": "09_expressions",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 1,
+        "source_sha256": "53d707aabaa62c080a3c4e651643cbc89daedc807dbf3f41d54ca1e191f42f57"
+      },
+      {
+        "id": "10_assignments",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "35513158a1a8bd39cf73b2ba22d2b7eb0bdfe20485dc9963d410c512dbc2f2d3"
+      },
+      {
+        "id": "11_control_flow",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 2,
+        "source_sha256": "e9b003eb49908d113fe675b6cbc1c15afe3248f4e1a90d82a056cb1190b786a9"
+      },
+      {
+        "id": "12_subroutines",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "7d30b4bd1e9ffa2b5ff1c2db2237566fc470ccaf74433b0449f3f84ce4231153"
+      },
+      {
+        "id": "13_lifetime",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 1,
+        "source_sha256": "bbf78e05eb948020cba9b7892fd2c9edce77a8a8dd22b31f957deb206ef5cd0a"
+      },
+      {
+        "id": "14_scheduling",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "c16691b2311eaf07b4820ef660e9bf8804339900be1223e75d31207481c9c017"
+      },
+      {
+        "id": "15_processes",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "c74e46d3f0f253cef7ffc80004a8e17d53f3331d9ca65cb94b156f65cab7a41c"
+      },
+      {
+        "id": "16_communication",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 1,
+        "source_sha256": "88eca7ef03307b12ff300b97b0be67396bd485410e666c12759af0fc23b4e1cb"
+      },
+      {
+        "id": "17_classes",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "89a2744fd5da08b61d792f230a495c16ee63367fa83c050ec2ad08030a4dd372"
+      },
+      {
+        "id": "18_inheritance",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "1e6671dfa2bb1894add1aff88e58a1460f71404969995124f616c8f616e63828"
+      },
+      {
+        "id": "19_generic_types",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "e21be43153847fd9ce488913862918f38f940453160f763330d64c4ab63f5c50"
+      },
+      {
+        "id": "20_random",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 4,
+        "source_sha256": "39b800e2a82e4e7ff1118d15e17994d024aeb80f416f0c2da4663c64ddd8286f"
+      },
+      {
+        "id": "21_random_sequences",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 2,
+        "source_sha256": "5923199e3f00a44bcc49d699cde6f9bce6601dd742ce7410f72afdae955440cd"
+      },
+      {
+        "id": "22_coverage",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 2,
+        "source_sha256": "57a4de43c62dd90882500ed8a4f1d9bef39118ba28a9424d65ddddd7c3f21c23"
+      },
+      {
+        "id": "23_assertions",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "4f2dfb1b997fc95d682dfdaae18ec0b5c4c562c2f77e064d3227182ac89d960a"
+      },
+      {
+        "id": "24_sequences",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "d64cdf959b13ab796ea612e89c9d5d84b5e2d7cd5fd9dd509d7e371c28ecb3ee"
+      },
+      {
+        "id": "25_properties",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "dd552e923860c0c60921bd2e56290e9ea7d252f34fdb3d6cea09a8491e0b2df4"
+      },
+      {
+        "id": "26_checker_bind",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 4,
+        "source_sha256": "fb76a7ee14d1ca0758ae8902204e6e6c1873aaa9d9185f45f647533a76e05928"
+      },
+      {
+        "id": "27_hierarchy",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 2,
+        "source_sha256": "1f80a81430ea0350f4ab1fcefb59bc627edb032ee78d924ba1edd8c7d4c9131b"
+      },
+      {
+        "id": "28_interfaces",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "e38efe43b1f917b1578e28467decf834f7efce69bd42d14b3439bf7aab11dae6"
+      },
+      {
+        "id": "29_clocking",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "9827b65ac1686c836219d108a2b965b9a3c219a84666a39b58b154a9b5ae42c7"
+      },
+      {
+        "id": "30_program",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "3e37aa851703d2e2ae8bb0359be5760136c61d47ffbd2b360eb32a83d80725be"
+      },
+      {
+        "id": "31_nettypes",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "4502826165000a485f934d7363186f456ecd8bbc804abd22859a8f15c4db2696"
+      },
+      {
+        "id": "32_gates",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "9600a279e7d906368e5fb773ee94a532a37632f21cb04cdfcabacb688fd0018c"
+      },
+      {
+        "id": "33_switches",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "caaa77b5e608a37e47bc12df9ab2ff9ed40f2a34e238723dd34276e98b2b0c76"
+      },
+      {
+        "id": "34_udp",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 2,
+        "source_sha256": "54c7cc8245d4935d3afbcf1c7aa0d6ad4908523694dc840c73b46d0c94cd12da"
+      },
+      {
+        "id": "35_specify",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 2,
+        "source_sha256": "e20465e77c6d255c76c332faca5d199df717b2b45e3f8a7fd3318e0b92617a89"
+      },
+      {
+        "id": "36_timing_checks",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 2,
+        "source_sha256": "22c0da1a2523395fa4d5e708a492dde7e1c00f6dc85b7263e9aa16606493adf8"
+      },
+      {
+        "id": "37_sdf",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "b1bd88ad946ab1d71eb5ba9d650a09ba7efa472921bb3fa1ab5c67655085e193"
+      },
+      {
+        "id": "38_config",
+        "status": "NOT_CHECKED",
+        "reason": "config",
+        "source_sha256": "2f44a152e524537368fa3f8e7f918b1705dcbaf8ab0c4e0a8479e779d66e4387"
+      },
+      {
+        "id": "39_dpi",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "5995c1dcdc2bc613c1ca7d66ea87ff16f89e837e0725bac239f750acff0902e9"
+      },
+      {
+        "id": "40_dpi_arrays",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "c109c7c2e137fb16aebe70d656d211e9e22782263b78150d26e15a52672959b4"
+      },
+      {
+        "id": "41_vpi",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 2,
+        "source_sha256": "a0ba3ff301cc2c1b31c711ded8f711666d52a809a4e244b7f9aa0f85eccf568e"
+      },
+      {
+        "id": "42_fileio",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "e7b64372d30c8c14b26b84d0624bb97b370f18d9f0dfb91a6daf8ebecd5ba240"
+      },
+      {
+        "id": "43_utilities",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "b7e71c16923a6037e00342d09cf4e51a4bb90550b8907bc972a03bd582654544"
+      },
+      {
+        "id": "44_distributions",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "7023245b8beefe1329fc602cf750e8d8e1a03aa4fd442dc267d510bb8d77eb7e"
+      },
+      {
+        "id": "45_coverage_api",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "201a915dc445ba22af73fc211dba90fbe728310226cb4509490623f2e6f389af"
+      },
+      {
+        "id": "46_tagged_union",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "77d9f67a00820f4d381904f8c8c035eedb09198e9945732240daffa1206e6ef3"
+      },
+      {
+        "id": "47_alias_ports",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 2,
+        "source_sha256": "bd381504ce8b937b69227f1ad91a00bfa43450498c4d1d53ba2ce99e084cae31"
+      },
+      {
+        "id": "48_sva_operators",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "75ecb8aa006fdbfc5c5b5827f196a339a6c3a3510037465b9b35776c4d4d2463"
+      },
+      {
+        "id": "49_multiclock",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "40918707a0d58d4c230c3693ceeeddec2cc8334d3b6968fedd3820c48ff0746e"
+      },
+      {
+        "id": "50_coverage_bins",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "557981c16e2d2fa6ab084cfc3c6f62f912f7296ede7cfec489bca046fc2ace43"
+      },
+      {
+        "id": "51_constraint_control",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "1fba85d8e4889b19368444418817dd050cefdac03cd0d0aa21329c75a9ba6aac"
+      },
+      {
+        "id": "52_process_handles",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "bef8362f08d7a9304894c2a9b7aba0516ce9d270c230ec069633a76c2ac2a316"
+      },
+      {
+        "id": "53_preprocessor_edges",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 1,
+        "source_sha256": "e814284821ced88b9cb093a0ccd583f3123757577bc8d18797daf9186a65d304"
+      },
+      {
+        "id": "54_legacy_storage",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "cfcd113738b493d245fe67c2fa955f7ce6c7972394d4eacb6a0e769bd3b6bf91"
+      },
+      {
+        "id": "55_file_positions",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 2,
+        "source_sha256": "9b511b55b6c957d4fcef48cd6ae1d50c6b52b662d006ff668f469e1d7c59c567"
+      },
+      {
+        "id": "56_stochastic_pla",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "988fda484e824f9cea4e27a419a62c5f360989e28a900842e80761e437ee1b44"
+      },
+      {
+        "id": "57_vpi_callbacks",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 1,
+        "source_sha256": "8266daae8aeb2abf8e7cf0230f56e4e18cabe396ba7e99572f869d7f9598b65e"
+      },
+      {
+        "id": "58_assertion_api",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 1,
+        "source_sha256": "712871094a3bf24a26e1115e028afa9efb7a4f4eac59fbdc53156489962adf59"
+      },
+      {
+        "id": "59_protection",
+        "status": "NOT_CHECKED",
+        "reason": "external",
+        "source_sha256": "c910fce6760cee86ab8a26860c025162d1f1f3903d6691df049a6a9704ff9912"
+      },
+      {
+        "id": "60_bnf",
+        "status": "NOT_CHECKED",
+        "reason": "reference",
+        "source_sha256": "de50502ba84d3e73968c25c47214a5a2c0157883e03d3a94688de1888f91bfdc"
+      },
+      {
+        "id": "61_keywords",
+        "status": "NOT_CHECKED",
+        "reason": "reference",
+        "source_sha256": "59d71c377dcfc9b93fcd7622ea26dafca7938dd6d0ac37a2e0b188d6ffc16c8f"
+      },
+      {
+        "id": "62_standard_package",
+        "status": "NOT_CHECKED",
+        "reason": "reference",
+        "source_sha256": "1fa440cc0b523b96fd9a56dd9fa693fd9f374d7c08821c643eb2983fc9915356"
+      },
+      {
+        "id": "63_foreign_headers",
+        "status": "NOT_CHECKED",
+        "reason": "reference",
+        "source_sha256": "518b61ef3416e00d45d3a2538eacf71915c29f793c9f67a16bb98db7d1019d5d"
+      },
+      {
+        "id": "64_deprecated_api",
+        "status": "NOT_CHECKED",
+        "reason": "reference",
+        "source_sha256": "2b5d66175560a96fba05e529b2208be49c129159cd0fe28d123b257a30c8875c"
+      },
+      {
+        "id": "65_formal_semantics",
+        "status": "NOT_CHECKED",
+        "reason": "reference",
+        "source_sha256": "5592f8839f3184a77efa729a9f4db20c6a338178b38e8541795cc59142cc3a5e"
+      },
+      {
+        "id": "66_vpi_object_model",
+        "status": "NOT_CHECKED",
+        "reason": "reference",
+        "source_sha256": "974c267e83210dab6951b6d36527f836543e278f4bf834f1bb2cfdf98c7ccd46"
+      },
+      {
+        "id": "67_reading_map",
+        "status": "NOT_CHECKED",
+        "reason": "reference",
+        "source_sha256": "010152e8771ea0eb9be3039ad9200420832c45ad820f2d953597de3d5fb239c6"
+      },
+      {
+        "id": "68_bad_implicit",
+        "status": "EXPECTED_REJECT",
+        "errors": 2,
+        "diagnostics": 2,
+        "source_sha256": "a2c0536680e3ed54642d1a0673f8a2dc9a0f3e4a351915ab79e9b356692b8f80"
+      },
+      {
+        "id": "69_bad_enum",
+        "status": "EXPECTED_REJECT",
+        "errors": 1,
+        "diagnostics": 1,
+        "source_sha256": "8676a8910770099f2dec545b6981c6d9c7b78fc77eaded4512755252712e900a"
+      },
+      {
+        "id": "70_bad_ref",
+        "status": "EXPECTED_REJECT",
+        "errors": 1,
+        "diagnostics": 1,
+        "source_sha256": "c7775bd2cfddd48dee25bf1939c8e2f2d0520117e64da362fac04e4fc13501f4"
+      },
+      {
+        "id": "71_expected_assert",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "8d0bdb925acc6b431aae514cc90827e87f7cfa5461040b75a6397b66e18c73ef"
+      },
+      {
+        "id": "72_integrated_fifo",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 9,
+        "source_sha256": "56c57736ef64eebf3dccf2d095744ef9bf1e101a5a9a03933ef02256df8621dd"
+      },
+      {
+        "id": "73_gate_families",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 1,
+        "source_sha256": "84705b5fb57acb207810060a7d35fe887ed87caad06b596463fe06fee70ad96f"
+      },
+      {
+        "id": "74_charge_strength",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "4c20fc9afa5db2cb47cf01bec64e92fe65a66168b28b9365584084ffa213ebc6"
+      },
+      {
+        "id": "75_declaration_forms",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "8aaf200cd031c8e7d2985bae7f7cdd757f34f486fc7839592f72d47e666d85b9"
+      },
+      {
+        "id": "76_control_edges",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 1,
+        "source_sha256": "e999330813aa6b265b8e8ce9254e46d8ba128a1b012fcccdff53d52558312150"
+      },
+      {
+        "id": "77_property_forms",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "e9d22887a51bf6f071db636744b5483df767269012f67953a1907ae204b6dad9"
+      },
+      {
+        "id": "78_interface_broadcast",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "b5ac6cb17d14f9d8dc6fd0935e7ffb70ab1422f230ec1891d465a8b9f9528b04"
+      },
+      {
+        "id": "79_conditional_paths",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 4,
+        "source_sha256": "60935b1288facb64032a8e6a5bdec800c4ba5794ccefdeb90fd27a461b92e3c2"
+      },
+      {
+        "id": "80_coverage_selection",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "87b5f86cccc4b094663f6f11b00806e042da8f49434cf323f12be0d0df3e695a"
+      },
+      {
+        "id": "81_interconnect",
+        "status": "STATIC_OK",
+        "errors": 0,
+        "diagnostics": 0,
+        "source_sha256": "509d3fa39781d0b81e9cd1a336a21393a33f31c1289ffc39276b970f71f00ab8"
+      }
+    ],
+    "summary": {
+      "STATIC_OK": 68,
+      "NOT_CHECKED": 10,
+      "EXPECTED_REJECT": 3
+    }
+  },
+  "runtime": {
+    "date": "2026-09-13T23:38:48.775163+00:00",
+    "engine": "icarus",
+    "seed": 1,
+    "all": true,
+    "summary": {
+      "SKIP": 51,
+      "PASS": 19,
+      "READING": 8,
+      "EXPECTED_FAIL": 3
+    },
+    "results": [
+      {
+        "id": "01_lexical",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "8c11581b6f0623290ed5ab2da9f7ab5c1d67809dfb41f63e0d2957c77a056c0a",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.019
+      },
+      {
+        "id": "02_directives",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "9242bbbcfc77fb30013ce1bebfa3a4108e6b71088577fc42af04fc3eee98676e",
+        "reason": "Self-checks completed",
+        "output": "build/learn-02_directives-icarus/run",
+        "returncode": 0,
+        "seconds": 0.122
+      },
+      {
+        "id": "03_types",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "a0a27a148f598d10ebb1b5a1a499bca4e9dff2d17069cd1ae25c0a7a847004d0",
+        "reason": "Self-checks completed",
+        "output": "build/learn-03_types-icarus/run",
+        "returncode": 0,
+        "seconds": 0.122
+      },
+      {
+        "id": "04_enum_cast",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "08f818f2a855408bfd7b210ccae5a593319d6e508c8fd793411cf6228d41c3f2",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.023
+      },
+      {
+        "id": "05_struct_union",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "ddd4a14bf7c881cf038ff5715ce66d54eb66860a7155315ae0e0dfd44abdfa54",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.025
+      },
+      {
+        "id": "06_arrays",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "c35be1519bc527997663427021c2fa33b28eaaf93e45166027d07a9b33c47cb9",
+        "reason": "Self-checks completed",
+        "output": "build/learn-06_arrays-icarus/run",
+        "returncode": 0,
+        "seconds": 0.135
+      },
+      {
+        "id": "07_collections",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "a4fa0ff5398f7ed1a5b9eb0aa74128ef70da15b2a94601f95773785f5b2d010c",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.018
+      },
+      {
+        "id": "08_strings",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "c5254e627a1d1a734187a65e5fab91d088cb0f3f0031c66a765147b7395e76c7",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.018
+      },
+      {
+        "id": "09_expressions",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "53d707aabaa62c080a3c4e651643cbc89daedc807dbf3f41d54ca1e191f42f57",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.023
+      },
+      {
+        "id": "10_assignments",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "35513158a1a8bd39cf73b2ba22d2b7eb0bdfe20485dc9963d410c512dbc2f2d3",
+        "reason": "Self-checks completed",
+        "output": "build/learn-10_assignments-icarus/run",
+        "returncode": 0,
+        "seconds": 0.121
+      },
+      {
+        "id": "11_control_flow",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "e9b003eb49908d113fe675b6cbc1c15afe3248f4e1a90d82a056cb1190b786a9",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.022
+      },
+      {
+        "id": "12_subroutines",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "7d30b4bd1e9ffa2b5ff1c2db2237566fc470ccaf74433b0449f3f84ce4231153",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.019
+      },
+      {
+        "id": "13_lifetime",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "bbf78e05eb948020cba9b7892fd2c9edce77a8a8dd22b31f957deb206ef5cd0a",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.02
+      },
+      {
+        "id": "14_scheduling",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "c16691b2311eaf07b4820ef660e9bf8804339900be1223e75d31207481c9c017",
+        "reason": "Self-checks completed",
+        "output": "build/learn-14_scheduling-icarus/run",
+        "returncode": 0,
+        "seconds": 0.119
+      },
+      {
+        "id": "15_processes",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "c74e46d3f0f253cef7ffc80004a8e17d53f3331d9ca65cb94b156f65cab7a41c",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.018
+      },
+      {
+        "id": "16_communication",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "88eca7ef03307b12ff300b97b0be67396bd485410e666c12759af0fc23b4e1cb",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.018
+      },
+      {
+        "id": "17_classes",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "89a2744fd5da08b61d792f230a495c16ee63367fa83c050ec2ad08030a4dd372",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.019
+      },
+      {
+        "id": "18_inheritance",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "1e6671dfa2bb1894add1aff88e58a1460f71404969995124f616c8f616e63828",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.021
+      },
+      {
+        "id": "19_generic_types",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "e21be43153847fd9ce488913862918f38f940453160f763330d64c4ab63f5c50",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.02
+      },
+      {
+        "id": "20_random",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "39b800e2a82e4e7ff1118d15e17994d024aeb80f416f0c2da4663c64ddd8286f",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.019
+      },
+      {
+        "id": "21_random_sequences",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "5923199e3f00a44bcc49d699cde6f9bce6601dd742ce7410f72afdae955440cd",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.018
+      },
+      {
+        "id": "22_coverage",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "57a4de43c62dd90882500ed8a4f1d9bef39118ba28a9424d65ddddd7c3f21c23",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.018
+      },
+      {
+        "id": "23_assertions",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "4f2dfb1b997fc95d682dfdaae18ec0b5c4c562c2f77e064d3227182ac89d960a",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.021
+      },
+      {
+        "id": "24_sequences",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "d64cdf959b13ab796ea612e89c9d5d84b5e2d7cd5fd9dd509d7e371c28ecb3ee",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.024
+      },
+      {
+        "id": "25_properties",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "dd552e923860c0c60921bd2e56290e9ea7d252f34fdb3d6cea09a8491e0b2df4",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.019
+      },
+      {
+        "id": "26_checker_bind",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "fb76a7ee14d1ca0758ae8902204e6e6c1873aaa9d9185f45f647533a76e05928",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.018
+      },
+      {
+        "id": "27_hierarchy",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "1f80a81430ea0350f4ab1fcefb59bc627edb032ee78d924ba1edd8c7d4c9131b",
+        "reason": "Self-checks completed",
+        "output": "build/learn-27_hierarchy-icarus/run",
+        "returncode": 0,
+        "seconds": 0.118
+      },
+      {
+        "id": "28_interfaces",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "e38efe43b1f917b1578e28467decf834f7efce69bd42d14b3439bf7aab11dae6",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.018
+      },
+      {
+        "id": "29_clocking",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "9827b65ac1686c836219d108a2b965b9a3c219a84666a39b58b154a9b5ae42c7",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.018
+      },
+      {
+        "id": "30_program",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "3e37aa851703d2e2ae8bb0359be5760136c61d47ffbd2b360eb32a83d80725be",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.018
+      },
+      {
+        "id": "31_nettypes",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "4502826165000a485f934d7363186f456ecd8bbc804abd22859a8f15c4db2696",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.018
+      },
+      {
+        "id": "32_gates",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "9600a279e7d906368e5fb773ee94a532a37632f21cb04cdfcabacb688fd0018c",
+        "reason": "Self-checks completed",
+        "output": "build/learn-32_gates-icarus/run",
+        "returncode": 0,
+        "seconds": 0.117
+      },
+      {
+        "id": "33_switches",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "caaa77b5e608a37e47bc12df9ab2ff9ed40f2a34e238723dd34276e98b2b0c76",
+        "reason": "Self-checks completed",
+        "output": "build/learn-33_switches-icarus/run",
+        "returncode": 0,
+        "seconds": 0.112
+      },
+      {
+        "id": "34_udp",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "54c7cc8245d4935d3afbcf1c7aa0d6ad4908523694dc840c73b46d0c94cd12da",
+        "reason": "Self-checks completed",
+        "output": "build/learn-34_udp-icarus/run",
+        "returncode": 0,
+        "seconds": 0.118
+      },
+      {
+        "id": "35_specify",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "e20465e77c6d255c76c332faca5d199df717b2b45e3f8a7fd3318e0b92617a89",
+        "reason": "Self-checks completed",
+        "output": "build/learn-35_specify-icarus/run",
+        "returncode": 0,
+        "seconds": 0.123
+      },
+      {
+        "id": "36_timing_checks",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "22c0da1a2523395fa4d5e708a492dde7e1c00f6dc85b7263e9aa16606493adf8",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.019
+      },
+      {
+        "id": "37_sdf",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "b1bd88ad946ab1d71eb5ba9d650a09ba7efa472921bb3fa1ab5c67655085e193",
+        "reason": "Self-checks completed",
+        "output": "build/learn-37_sdf-icarus/run",
+        "returncode": 0,
+        "seconds": 0.134
+      },
+      {
+        "id": "38_config",
+        "engine": "icarus",
+        "kind": "config",
+        "status": "SKIP",
+        "source_sha256": "2f44a152e524537368fa3f8e7f918b1705dcbaf8ab0c4e0a8479e779d66e4387",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.041
+      },
+      {
+        "id": "39_dpi",
+        "engine": "icarus",
+        "kind": "dpi",
+        "status": "SKIP",
+        "source_sha256": "5995c1dcdc2bc613c1ca7d66ea87ff16f89e837e0725bac239f750acff0902e9",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.023
+      },
+      {
+        "id": "40_dpi_arrays",
+        "engine": "icarus",
+        "kind": "dpi",
+        "status": "SKIP",
+        "source_sha256": "c109c7c2e137fb16aebe70d656d211e9e22782263b78150d26e15a52672959b4",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.022
+      },
+      {
+        "id": "41_vpi",
+        "engine": "icarus",
+        "kind": "vpi",
+        "status": "PASS",
+        "source_sha256": "a0ba3ff301cc2c1b31c711ded8f711666d52a809a4e244b7f9aa0f85eccf568e",
+        "reason": "Self-checks completed",
+        "output": "build/learn-41_vpi-icarus/run",
+        "returncode": 0,
+        "seconds": 0.398
+      },
+      {
+        "id": "42_fileio",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "e7b64372d30c8c14b26b84d0624bb97b370f18d9f0dfb91a6daf8ebecd5ba240",
+        "reason": "Self-checks completed",
+        "output": "build/learn-42_fileio-icarus/run",
+        "returncode": 0,
+        "seconds": 0.132
+      },
+      {
+        "id": "43_utilities",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "b7e71c16923a6037e00342d09cf4e51a4bb90550b8907bc972a03bd582654544",
+        "reason": "Self-checks completed",
+        "output": "build/learn-43_utilities-icarus/run",
+        "returncode": 0,
+        "seconds": 0.108
+      },
+      {
+        "id": "44_distributions",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "7023245b8beefe1329fc602cf750e8d8e1a03aa4fd442dc267d510bb8d77eb7e",
+        "reason": "Self-checks completed",
+        "output": "build/learn-44_distributions-icarus/run",
+        "returncode": 0,
+        "seconds": 0.102
+      },
+      {
+        "id": "45_coverage_api",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "201a915dc445ba22af73fc211dba90fbe728310226cb4509490623f2e6f389af",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.015
+      },
+      {
+        "id": "46_tagged_union",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "77d9f67a00820f4d381904f8c8c035eedb09198e9945732240daffa1206e6ef3",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.015
+      },
+      {
+        "id": "47_alias_ports",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "bd381504ce8b937b69227f1ad91a00bfa43450498c4d1d53ba2ce99e084cae31",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.015
+      },
+      {
+        "id": "48_sva_operators",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "75ecb8aa006fdbfc5c5b5827f196a339a6c3a3510037465b9b35776c4d4d2463",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.016
+      },
+      {
+        "id": "49_multiclock",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "40918707a0d58d4c230c3693ceeeddec2cc8334d3b6968fedd3820c48ff0746e",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.015
+      },
+      {
+        "id": "50_coverage_bins",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "557981c16e2d2fa6ab084cfc3c6f62f912f7296ede7cfec489bca046fc2ace43",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.019
+      },
+      {
+        "id": "51_constraint_control",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "1fba85d8e4889b19368444418817dd050cefdac03cd0d0aa21329c75a9ba6aac",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.015
+      },
+      {
+        "id": "52_process_handles",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "bef8362f08d7a9304894c2a9b7aba0516ce9d270c230ec069633a76c2ac2a316",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.015
+      },
+      {
+        "id": "53_preprocessor_edges",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "e814284821ced88b9cb093a0ccd583f3123757577bc8d18797daf9186a65d304",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.015
+      },
+      {
+        "id": "54_legacy_storage",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "cfcd113738b493d245fe67c2fa955f7ce6c7972394d4eacb6a0e769bd3b6bf91",
+        "reason": "Self-checks completed",
+        "output": "build/learn-54_legacy_storage-icarus/run",
+        "returncode": 0,
+        "seconds": 0.111
+      },
+      {
+        "id": "55_file_positions",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "9b511b55b6c957d4fcef48cd6ae1d50c6b52b662d006ff668f469e1d7c59c567",
+        "reason": "Self-checks completed",
+        "output": "build/learn-55_file_positions-icarus/run",
+        "returncode": 0,
+        "seconds": 0.111
+      },
+      {
+        "id": "56_stochastic_pla",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "988fda484e824f9cea4e27a419a62c5f360989e28a900842e80761e437ee1b44",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.016
+      },
+      {
+        "id": "57_vpi_callbacks",
+        "engine": "icarus",
+        "kind": "vpi",
+        "status": "PASS",
+        "source_sha256": "8266daae8aeb2abf8e7cf0230f56e4e18cabe396ba7e99572f869d7f9598b65e",
+        "reason": "Self-checks completed",
+        "output": "build/learn-57_vpi_callbacks-icarus/run",
+        "returncode": 0,
+        "seconds": 0.367
+      },
+      {
+        "id": "58_assertion_api",
+        "engine": "icarus",
+        "kind": "vpi",
+        "status": "SKIP",
+        "source_sha256": "712871094a3bf24a26e1115e028afa9efb7a4f4eac59fbdc53156489962adf59",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.02
+      },
+      {
+        "id": "59_protection",
+        "engine": "icarus",
+        "kind": "external",
+        "status": "SKIP",
+        "source_sha256": "c910fce6760cee86ab8a26860c025162d1f1f3903d6691df049a6a9704ff9912",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.028
+      },
+      {
+        "id": "60_bnf",
+        "engine": "icarus",
+        "kind": "reference",
+        "status": "READING",
+        "source_sha256": "de50502ba84d3e73968c25c47214a5a2c0157883e03d3a94688de1888f91bfdc",
+        "reason": "付録Aの全生成規則を索引で検索し、実際のコードへ辿る。",
+        "seconds": 0.015
+      },
+      {
+        "id": "61_keywords",
+        "engine": "icarus",
+        "kind": "reference",
+        "status": "READING",
+        "source_sha256": "59d71c377dcfc9b93fcd7622ea26dafca7938dd6d0ac37a2e0b188d6ffc16c8f",
+        "reason": "付録Bの全予約語を一覧化し、コード内の使用箇所とBNFに繋げる。",
+        "seconds": 0.008
+      },
+      {
+        "id": "62_standard_package",
+        "engine": "icarus",
+        "kind": "reference",
+        "status": "READING",
+        "source_sha256": "1fa440cc0b523b96fd9a56dd9fa693fd9f374d7c08821c643eb2983fc9915356",
+        "reason": "付録Gの宣言と、15/16/20/52の呼出しを1対1で照合する。",
+        "seconds": 0.008
+      },
+      {
+        "id": "63_foreign_headers",
+        "engine": "icarus",
+        "kind": "reference",
+        "status": "READING",
+        "source_sha256": "518b61ef3416e00d45d3a2538eacf71915c29f793c9f67a16bb98db7d1019d5d",
+        "reason": "PDFのC宣言を、実行先ツールのヘッダーと比べる。",
+        "seconds": 0.02
+      },
+      {
+        "id": "64_deprecated_api",
+        "engine": "icarus",
+        "kind": "reference",
+        "status": "READING",
+        "source_sha256": "2b5d66175560a96fba05e529b2208be49c129159cd0fe28d123b257a30c8875c",
+        "reason": "「目次に章がある」ことと「この版に文法が定義されている」ことは別。",
+        "seconds": 0.007
+      },
+      {
+        "id": "65_formal_semantics",
+        "engine": "icarus",
+        "kind": "reference",
+        "status": "READING",
+        "source_sha256": "5592f8839f3184a77efa729a9f4db20c6a338178b38e8541795cc59142cc3a5e",
+        "reason": "同じassertが成功でも、要求が来なかっただけの成功と、応答まで観測した成功を区別する。",
+        "seconds": 0.011
+      },
+      {
+        "id": "66_vpi_object_model",
+        "engine": "icarus",
+        "kind": "reference",
+        "status": "READING",
+        "source_sha256": "974c267e83210dab6951b6d36527f836543e278f4bf834f1bb2cfdf98c7ccd46",
+        "reason": "37章の図は回路図でなく、VPIオブジェクト間を辿る地図。",
+        "seconds": 0.012
+      },
+      {
+        "id": "67_reading_map",
+        "engine": "icarus",
+        "kind": "reference",
+        "status": "READING",
+        "source_sha256": "010152e8771ea0eb9be3039ad9200420832c45ad820f2d953597de3d5fb239c6",
+        "reason": "規格の要求、説明、例、外部参照を分けて読む。",
+        "seconds": 0.008
+      },
+      {
+        "id": "68_bad_implicit",
+        "engine": "icarus",
+        "kind": "compile_fail",
+        "status": "EXPECTED_FAIL",
+        "source_sha256": "a2c0536680e3ed54642d1a0673f8a2dc9a0f3e4a351915ab79e9b356692b8f80",
+        "reason": "Required diagnostic observed at intended stage",
+        "output": "build/learn-68_bad_implicit-icarus/compile",
+        "returncode": 3,
+        "seconds": 0.064
+      },
+      {
+        "id": "69_bad_enum",
+        "engine": "icarus",
+        "kind": "compile_fail",
+        "status": "EXPECTED_FAIL",
+        "source_sha256": "8676a8910770099f2dec545b6981c6d9c7b78fc77eaded4512755252712e900a",
+        "reason": "Required diagnostic observed at intended stage",
+        "output": "build/learn-69_bad_enum-icarus/compile",
+        "returncode": 1,
+        "seconds": 0.064
+      },
+      {
+        "id": "70_bad_ref",
+        "engine": "icarus",
+        "kind": "compile_fail",
+        "status": "SKIP",
+        "source_sha256": "c7775bd2cfddd48dee25bf1939c8e2f2d0520117e64da362fac04e4fc13501f4",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.015
+      },
+      {
+        "id": "71_expected_assert",
+        "engine": "icarus",
+        "kind": "runtime_fail",
+        "status": "EXPECTED_FAIL",
+        "source_sha256": "8d0bdb925acc6b431aae514cc90827e87f7cfa5461040b75a6397b66e18c73ef",
+        "reason": "Required diagnostic observed at intended stage",
+        "output": "build/learn-71_expected_assert-icarus/run",
+        "returncode": 1,
+        "seconds": 0.103
+      },
+      {
+        "id": "72_integrated_fifo",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "56c57736ef64eebf3dccf2d095744ef9bf1e101a5a9a03933ef02256df8621dd",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.019
+      },
+      {
+        "id": "73_gate_families",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "PASS",
+        "source_sha256": "84705b5fb57acb207810060a7d35fe887ed87caad06b596463fe06fee70ad96f",
+        "reason": "Self-checks completed",
+        "output": "build/learn-73_gate_families-icarus/run",
+        "returncode": 0,
+        "seconds": 0.101
+      },
+      {
+        "id": "74_charge_strength",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "4c20fc9afa5db2cb47cf01bec64e92fe65a66168b28b9365584084ffa213ebc6",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.015
+      },
+      {
+        "id": "75_declaration_forms",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "8aaf200cd031c8e7d2985bae7f7cdd757f34f486fc7839592f72d47e666d85b9",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.015
+      },
+      {
+        "id": "76_control_edges",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "e999330813aa6b265b8e8ce9254e46d8ba128a1b012fcccdff53d52558312150",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.018
+      },
+      {
+        "id": "77_property_forms",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "e9d22887a51bf6f071db636744b5483df767269012f67953a1907ae204b6dad9",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.019
+      },
+      {
+        "id": "78_interface_broadcast",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "b5ac6cb17d14f9d8dc6fd0935e7ffb70ab1422f230ec1891d465a8b9f9528b04",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.015
+      },
+      {
+        "id": "79_conditional_paths",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "60935b1288facb64032a8e6a5bdec800c4ba5794ccefdeb90fd27a461b92e3c2",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.018
+      },
+      {
+        "id": "80_coverage_selection",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "87b5f86cccc4b094663f6f11b00806e042da8f49434cf323f12be0d0df3e695a",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.015
+      },
+      {
+        "id": "81_interconnect",
+        "engine": "icarus",
+        "kind": "sim",
+        "status": "SKIP",
+        "source_sha256": "509d3fa39781d0b81e9cd1a336a21393a33f31c1289ffc39276b970f71f00ab8",
+        "reason": "Outside the Icarus subset; use Xcelium / reference exercise",
+        "seconds": 0.015
+      }
+    ]
+  },
+  "environment": {
+    "groups": [
+      "Index: all 593 TOC entries, 41 chapters, 17 annexes, 248 keyword examples; no broken lab paths",
+      "Runner accepts actual completion marker",
+      "Expected compile/runtime failures require matching diagnostics",
+      "Unrelated compiler errors and license failures cannot pass negative tests",
+      "Missing/empty completion and missing xrun.log are rejected",
+      "Wall-clock timeout stops the simulator process group",
+      "Make entry, config, DPI, VPI and FIFO command generation",
+      "FIFO RTL: DEPTH=1/3/4/5, boundaries, wraparound, 1000 random steps each, asynchronous reset",
+      "Independent FIFO checker detects six injected RTL defects"
+    ],
+    "note": "xrun-related checks use a stub; no Xcelium simulation was performed"
+  },
+  "variants": [
+    {
+      "name": "fault-injection-rejected",
+      "id": "42_fileio",
+      "args": [
+        "+INJECT_FAIL"
+      ],
+      "observed_status": "FAIL",
+      "verification": "PASS",
+      "source_sha256": "e7b64372d30c8c14b26b84d0624bb97b370f18d9f0dfb91a6daf8ebecd5ba240"
+    },
+    {
+      "name": "invalid-count-rejected",
+      "id": "42_fileio",
+      "args": [
+        "+COUNT=0"
+      ],
+      "observed_status": "FAIL",
+      "verification": "PASS",
+      "source_sha256": "e7b64372d30c8c14b26b84d0624bb97b370f18d9f0dfb91a6daf8ebecd5ba240"
+    },
+    {
+      "name": "count-and-vcd",
+      "id": "42_fileio",
+      "args": [
+        "+COUNT=2",
+        "+WAVES"
+      ],
+      "observed_status": "PASS",
+      "verification": "PASS",
+      "source_sha256": "e7b64372d30c8c14b26b84d0624bb97b370f18d9f0dfb91a6daf8ebecd5ba240"
+    },
+    {
+      "name": "minimum-path-delay",
+      "id": "35_specify",
+      "args": [
+        "-mindelays",
+        "+EXPECTED_DELAY=1"
+      ],
+      "observed_status": "PASS",
+      "verification": "PASS",
+      "source_sha256": "e20465e77c6d255c76c332faca5d199df717b2b45e3f8a7fd3318e0b92617a89"
+    },
+    {
+      "name": "maximum-path-delay",
+      "id": "35_specify",
+      "args": [
+        "-maxdelays",
+        "+EXPECTED_DELAY=5"
+      ],
+      "observed_status": "PASS",
+      "verification": "PASS",
+      "source_sha256": "e20465e77c6d255c76c332faca5d199df717b2b45e3f8a7fd3318e0b92617a89"
+    },
+    {
+      "name": "coverage-80-command",
+      "verification": "PASS",
+      "note": "Command generation only; Xcelium was not run"
+    }
+  ],
+  "xcelium": {
+    "status": "NOT_RUN",
+    "reason": "No xrun installation or licensed setup available on this PC"
+  },
+  "scope_notes": [
+    "Static checking uses default preprocessing branches; it is not simulation.",
+    "77 EXPLICIT_UNTYPED branch is not accepted by pyslang 11.0.0 and requires target-simulator checking.",
+    "VPI simulations use actual Icarus headers and runtime; Xcelium ABI is not verified.",
+    "Independent FIFO test checks the actual RTL at four depths; the advanced SVA/class/coverage TB is static-checked only.",
+    "xrun launcher tests use a stub. No claim of Xcelium, SimVision, SHM, DPI or license verification.",
+    "Keyword presence includes conditional branches and library/config files; it does not imply every branch ran."
+  ]
+}
